@@ -7,21 +7,21 @@ echo "Looking ONLY for *.yaml files"
 function post_apply {
     for i in `find post-operators -iname "*.yaml"`; do
 	echo "-> post operators apply <-"
-	oc apply -f $i;
+	oc create -f $i;
     done
 }
 
 function pre_apply {
     for i in `find pre-operators -iname "*.yaml"`; do
 	echo "-> pre operators apply <-"
-	oc apply -f $i;
+	oc create -f $i;
     done
 }
 
 function apply {
     for i in `find operators -iname "*.yaml"`; do
 	echo "-> operators apply <-"
-	oc apply -f $i;
+	oc create -f $i;
     done
 }
 
@@ -54,7 +54,7 @@ KUBECONFIG=$MYDIR/auth/kubeconfig post_apply
 SECONDS=60
 echo "sleep $SECONDS before calling next script"
 sleep $SECONDS
-KUBECONFIG=$MYDIR/auth/kubeconfig post-apply
+KUBECONFIG=$MYDIR/auth/kubeconfig post_apply
 ./3.argo-login-and-get-cluster-info.sh
 echo "next script (3.argo-login-and-get-cluster-info.sh got called"
 ./get-cluster-info.sh
