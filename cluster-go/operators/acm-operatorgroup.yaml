@@ -1,11 +1,3 @@
-apiVersion: project.openshift.io/v1
-kind: Project
-metadata:
-  name: open-cluster-management
-spec:
-  finalizers:
-  - kubernetes
----
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
