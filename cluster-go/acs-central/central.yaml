@@ -1,0 +1,57 @@
+﻿apiVersion: platform.stackrox.io/v1alpha1
+kind: Central
+metadata:
+  creationTimestamp: '2023-08-21T06:32:09Z'
+  finalizers:
+    - uninstall-helm-release
+  name: stackrox-central-services
+  namespace: stackrox
+spec:
+  central:
+    db:
+      isEnabled: Default
+      persistence:
+        persistentVolumeClaim:
+          claimName: central-db
+      resources:
+        limits:
+          cpu: 100m
+        requests:
+          cpu: 100m
+    exposure:
+      loadBalancer:
+        enabled: false
+        port: 443
+      nodePort:
+        enabled: false
+      route:
+        enabled: true
+    persistence:
+      persistentVolumeClaim:
+        claimName: stackrox-db
+    resources:
+      limits:
+        cpu: 100m
+      requests:
+        cpu: 100m
+  egress:
+    connectivityPolicy: Online
+  scanner:
+    analyzer:
+      resources:
+        limits:
+          cpu: 100m
+        requests:
+          cpu: 100m
+      scaling:
+        autoScaling: Enabled
+        maxReplicas: 1
+        minReplicas: 1
+        replicas: 1
+    db:
+      resources:
+        limits:
+          cpu: 100m
+        requests:
+          cpu: 100m
+    scannerComponent: Enabled
