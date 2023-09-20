@@ -5,7 +5,6 @@ metadata:
 spec:
   finalizers:
   - kubernetes
-apiVersion: operators.coreos.com/v1
 ---
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
