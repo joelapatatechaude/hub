@@ -45,11 +45,11 @@ function wait {
 }
 
 #KUBECONFIG=$MYDIR/auth/kubeconfig oc new-project gitwebhook-operator
-KUBECONFIG=$MYDIR/auth/kubeconfig pre_apply
-sleep 1
+#KUBECONFIG=$MYDIR/auth/kubeconfig pre_apply
+#sleep 1
 KUBECONFIG=$MYDIR/auth/kubeconfig apply
 KUBECONFIG=$MYDIR/auth/kubeconfig wait
-KUBECONFIG=$MYDIR/auth/kubeconfig post_apply
+#KUBECONFIG=$MYDIR/auth/kubeconfig post_apply
 # 10 seconds was tested and was not enough
 SECONDS=60
 echo "sleep $SECONDS before calling next script"

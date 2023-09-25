@@ -46,7 +46,7 @@ argocd login --username admin --password $ARGO_PASSWORD $ARGO_SERVER --config=$A
 
 KUBECONFIG=$MYDIR/auth/kubeconfig patch_label
 KUBECONFIG=$MYDIR/auth/kubeconfig patch_sub_health
-KUBECONFIG=$MYDIR/auth/kubeconfig banner
+# KUBECONFIG=$MYDIR/auth/kubeconfig banner <- This is done in cluster-go/operators now.
 
 #trust_gitops doesn't work as expected so far...
 #KUBECONFIG=$MYDIR/auth/kubeconfig trust_gitops

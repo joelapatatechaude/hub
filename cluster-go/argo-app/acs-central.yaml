@@ -13,7 +13,7 @@ spec:
       jsonnet: {}
       recurse: true
     path: cluster-go/acs-central
-    repoURL: https://github.com/joelapatatechaude/hub-go
+    repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
     syncOptions:
     - Prune=true

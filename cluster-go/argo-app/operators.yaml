@@ -15,7 +15,7 @@ spec:
       jsonnet: {}
       recurse: true
     path: cluster-go/operators
-    repoURL: https://github.com/joelapatatechaude/hub-go
+    repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
     automated: {}
     syncOptions:
