@@ -14,7 +14,7 @@ spec:
           claimName: central-db
       resources:
         limits:
-          cpu: 200m
+          cpu: 1000m
         requests:
           cpu: 200m
     exposure:
@@ -32,7 +32,7 @@ spec:
         claimName: stackrox-db
     resources:
       limits:
-        cpu: 200m
+        cpu: 1000m
       requests:
         cpu: 200m
     telemetry:
@@ -46,7 +46,7 @@ spec:
     analyzer:
       resources:
         limits:
-          cpu: 200m
+          cpu: 1000m
         requests:
           cpu: 200m
       scaling:
@@ -59,7 +59,7 @@ spec:
     db:
       resources:
         limits:
-          cpu: 200m
+          cpu: 1000m
         requests:
           cpu: 200m
     scannerComponent: Enabled
