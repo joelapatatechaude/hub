@@ -9,7 +9,7 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: '2'
 spec:
-  channel: release-2.8
+  channel: release-2.9
   installPlanApproval: Automatic
   name: advanced-cluster-management
   source: redhat-operators
