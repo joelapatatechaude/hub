@@ -5,10 +5,13 @@ metadata:
     operators.coreos.com/advanced-cluster-management.open-cluster-management: ''
   name: advanced-cluster-management
   namespace: open-cluster-management
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: '2'
 spec:
   channel: release-2.8
   installPlanApproval: Automatic
   name: advanced-cluster-management
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: advanced-cluster-management.v2.8.1
+
