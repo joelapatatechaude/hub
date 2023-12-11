@@ -3,8 +3,9 @@ kind: Application
 metadata:
   name: acm-mch
   namespace: openshift-gitops
-  type: infrastructure
-  service: RHACM
+  labels:
+    type: infrastructure
+    service: RHACM
 spec:
   destination:
     name: hub
