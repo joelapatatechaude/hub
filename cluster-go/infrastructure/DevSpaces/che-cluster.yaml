@@ -2,7 +2,7 @@ apiVersion: org.eclipse.che/v2
 kind: CheCluster
 metadata:
   name: devspaces
-  namespace: openshift-operators
+  namespace: openshift-devspaces
 spec:
   components:
     cheServer:
@@ -28,8 +28,8 @@ spec:
       pvcStrategy: per-user
   gitServices:
     github:
-      endpoint: "https://github.com"
-      secretName: github-oauth-secret
+      - endpoint: "https://github.com"
+        secretName: github-oauth-secret
   networking:
     auth:
       gateway:
