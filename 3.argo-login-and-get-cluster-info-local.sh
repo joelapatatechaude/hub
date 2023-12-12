@@ -34,6 +34,8 @@ EOF
 
 function sealed_secret {
     echo "creating sealed secret"
+    echo "I don't think I need to restart pods, but I might need"
+    echo "will need to validate sealed-secret works fine when I create a new cluster"
     oc create -f ~/.aws/sealed-secret.yaml
 }
 

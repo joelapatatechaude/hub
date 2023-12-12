@@ -3,3 +3,4 @@ cluster/
 cluster-local/
 cluster-local
 STUFF/
+github-oauth-secret.yaml
