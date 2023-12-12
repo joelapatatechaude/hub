@@ -1,3 +1,5 @@
 .openshift_install.log
 cluster/
+cluster-local/
+cluster-local
 STUFF/

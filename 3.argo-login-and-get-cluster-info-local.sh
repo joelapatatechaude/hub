@@ -1,5 +1,5 @@
 #!/bin/sh
-source ./env.sh
+source ./env-local.sh
 source <(curl -s https://raw.githubusercontent.com/joelapatatechaude/common-scripts/main/OCP-Demo/functions-get-cluster-info.sh)
 #function trust_gitops {
 #    #B=$(oc get configmap/openshift-service-ca.crt -n openshift-gitops -o jsonpath='{.data.service-ca\.crt}')
@@ -37,7 +37,6 @@ function sealed_secret {
     oc create -f ~/.aws/sealed-secret.yaml
 }
 
-
 get_cluster_info
 
 ARGO_SERVER=$(KUBECONFIG=$MYDIR/auth/kubeconfig oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}')
@@ -53,6 +52,7 @@ argocd login --username admin --password $ARGO_PASSWORD $ARGO_SERVER --config=$A
 KUBECONFIG=$MYDIR/auth/kubeconfig patch_label
 KUBECONFIG=$MYDIR/auth/kubeconfig patch_sub_health
 KUBECONFIG=$MYDIR/auth/kubeconfig sealed_secret
+
 # KUBECONFIG=$MYDIR/auth/kubeconfig banner <- This is done in cluster-go/operators now.
 
 #trust_gitops doesn't work as expected so far...
