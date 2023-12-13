@@ -8,6 +8,8 @@ metadata:
     argocd.argoproj.io/sync-wave: '2'
 spec:
   components:
+    pluginRegistry:
+      openVSXURL: "https://open-vsx.org"
     cheServer:
       debug: false
       logLevel: INFO
