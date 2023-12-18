@@ -1,0 +1,50 @@
+apiVersion: build.openshift.io/v1
+kind: Build
+metadata:
+  annotations:
+    openshift.io/build-config.name: rails-blog
+    openshift.io/build.pod-name: rails-blog-1-build
+  labels:
+    app: rails-blog
+    app.kubernetes.io/component: rails-blog
+    app.kubernetes.io/instance: rails-blog
+    app.kubernetes.io/name: rails-blog
+    app.kubernetes.io/part-of: rails-blog-app
+    app.openshift.io/runtime: ruby
+    app.openshift.io/runtime-version: 3.0-ubi7
+    buildconfig: rails-blog
+    openshift.io/build-config.name: rails-blog
+    openshift.io/build.start-policy: Serial
+  name: rails-blog-1
+  namespace: multi-apps
+  ownerReferences:
+  - apiVersion: build.openshift.io/v1
+    controller: true
+    kind: BuildConfig
+    name: rails-blog
+spec:
+  nodeSelector: null
+  output:
+    pushSecret:
+      name: builder-dockercfg-4pb98
+    to:
+      kind: ImageStreamTag
+      name: rails-blog:latest
+  postCommit: {}
+  resources: {}
+  revision:
+    git: {}
+    type: Git
+  serviceAccount: builder
+  source:
+    contextDir: /
+    git:
+      ref: devfile
+      uri: https://github.com/joelapatatechaude/rails-blog.git
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  triggeredBy:
+  - message: Build configuration change
