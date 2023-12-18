@@ -1,0 +1,48 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: devfile
+    app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/rails-blog.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  labels:
+    app: rails-blog
+    app.kubernetes.io/component: rails-blog
+    app.kubernetes.io/instance: rails-blog
+    app.kubernetes.io/name: rails-blog
+    app.kubernetes.io/part-of: rails-blog-app
+    app.openshift.io/runtime: ruby
+    app.openshift.io/runtime-version: 3.0-ubi7
+  name: rails-blog
+  namespace: multi-apps
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: rails-blog:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: /
+    git:
+      ref: devfile
+      uri: https://github.com/joelapatatechaude/rails-blog.git
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - generic:
+      secretReference:
+        name: rails-blog-generic-webhook-secret
+    type: Generic
+  - github:
+      secretReference:
+        name: rails-blog-github-webhook-secret
+    type: GitHub
+  - type: ConfigChange
