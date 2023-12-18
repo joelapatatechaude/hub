@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: multi-DevSpaces
+  name: multi-devspaces
   namespace: openshift-gitops
   labels:
     type: applications
