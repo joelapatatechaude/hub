@@ -20,3 +20,8 @@ spec:
     syncOptions:
     - Prune=true
     - CreateNamespace=true
+  ignoreDifferences:
+  - group: "*"
+    kind: Deployment
+    jsonPointers:
+    - /spec/template/spec/containers/0/image
