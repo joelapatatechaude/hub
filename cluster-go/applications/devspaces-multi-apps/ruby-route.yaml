@@ -1,0 +1,27 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: rails-blog
+    app.kubernetes.io/component: rails-blog
+    app.kubernetes.io/instance: rails-blog
+    app.kubernetes.io/name: rails-blog
+    app.kubernetes.io/part-of: rails-blog-app
+    app.openshift.io/runtime: ruby
+    app.openshift.io/runtime-version: 3.0-ubi7
+  name: ruby
+  namespace: multi-apps
+spec:
+  host: ruby-multi-apps.apps.laptop1-03.cszevaco.com
+  path: /articles
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: rails-blog
+    weight: 100
+  wildcardPolicy: None
