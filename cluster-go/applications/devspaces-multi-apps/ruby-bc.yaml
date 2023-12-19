@@ -15,7 +15,6 @@ metadata:
     app.openshift.io/runtime-version: 3.0-ubi7
   name: rails-blog
   namespace: multi-apps
-  uid: 7d7bbeee-d4da-43e7-9a60-69d3d1ad4d36
 spec:
   failedBuildsHistoryLimit: 5
   nodeSelector: null

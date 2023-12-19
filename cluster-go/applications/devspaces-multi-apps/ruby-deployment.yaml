@@ -6,7 +6,6 @@ metadata:
     app.openshift.io/route-disabled: "false"
     app.openshift.io/vcs-ref: devfile
     app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/rails-blog.git
-    deployment.kubernetes.io/revision: "1"
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"rails-blog:latest","namespace":"multi-apps"},"fieldPath":"spec.template.spec.containers[?(@.name==\"rails-blog\")].image","pause":"false"}]'
     openshift.io/generated-by: OpenShiftWebConsole
   labels:
