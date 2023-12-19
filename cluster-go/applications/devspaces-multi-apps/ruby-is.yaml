@@ -1,0 +1,22 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: devfile
+    app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/rails-blog.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  labels:
+    app: rails-blog
+    app.kubernetes.io/component: rails-blog
+    app.kubernetes.io/instance: rails-blog
+    app.kubernetes.io/name: rails-blog
+    app.kubernetes.io/part-of: rails-blog-app
+    app.openshift.io/runtime: ruby
+    app.openshift.io/runtime-version: 3.0-ubi7
+  name: rails-blog
+  namespace: multi-apps
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/multi-apps/rails-blog
