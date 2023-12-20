@@ -1,0 +1,25 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    isFromDevfile: "true"
+    openshift.io/host.generated: "true"
+  labels:
+    app: python-basic
+    app.kubernetes.io/component: python-basic
+    app.kubernetes.io/instance: python-basic
+    app.kubernetes.io/name: python-basic
+    app.kubernetes.io/part-of: python-basic-app
+    app.openshift.io/runtime: python-basic
+  name: python-basic
+  namespace: apps2
+spec:
+  port:
+    targetPort: "8081"
+  tls:
+    termination: edge
+  to:
+    kind: Service
+    name: python-basic
+    weight: 100
+  wildcardPolicy: None

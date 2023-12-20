@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: "false"
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/devfile-sample-python-basic
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"python-basic:latest","namespace":"apps2"},"fieldPath":"spec.template.spec.containers[?(@.name==\"python-basic\")].image","pause":"false"}]'
+    isFromDevfile: "true"
+    openshift.io/generated-by: OpenShiftWebConsole
+  labels:
+    app: python-basic
+    app.kubernetes.io/component: python-basic
+    app.kubernetes.io/instance: python-basic
+    app.kubernetes.io/name: python-basic
+    app.kubernetes.io/part-of: python-basic-app
+    app.openshift.io/runtime: python-basic
+  name: python-basic
+  namespace: multi-apps
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: python-basic
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: python-basic
+        deployment: python-basic
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/apps2/python-basic:latest
+        imagePullPolicy: Always
+        name: python-basic
+        ports:
+        - containerPort: 8081
+          name: http
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 10m
+            memory: 50Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

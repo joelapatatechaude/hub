@@ -1,0 +1,45 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/devfile-sample-python-basic
+    openshift.io/generated-by: OpenShiftWebConsole
+  labels:
+    app: python-basic
+    app.kubernetes.io/component: python-basic
+    app.kubernetes.io/instance: python-basic
+    app.kubernetes.io/name: python-basic
+    app.kubernetes.io/part-of: python-basic-app
+    app.openshift.io/runtime: python-basic
+  name: python-basic
+  namespace: multi-apps
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: python-basic:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      uri: https://github.com/joelapatatechaude/devfile-sample-python-basic
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: docker/Dockerfile
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - generic:
+      secretReference:
+        name: python-basic-generic-webhook-secret
+    type: Generic
+  - github:
+      secretReference:
+        name: python-basic-github-webhook-secret
+    type: GitHub
+  - type: ConfigChange
