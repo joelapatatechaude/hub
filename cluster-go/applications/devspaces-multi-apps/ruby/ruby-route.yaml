@@ -14,7 +14,6 @@ metadata:
   name: ruby
   namespace: multi-apps
 spec:
-  host: ruby-multi-apps.apps.laptop1-03.cszevaco.com
   path: /articles
   port:
     targetPort: 8080-tcp

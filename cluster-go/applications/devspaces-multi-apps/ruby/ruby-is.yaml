@@ -18,5 +18,3 @@ metadata:
 spec:
   lookupPolicy:
     local: false
-status:
-  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/multi-apps/rails-blog
