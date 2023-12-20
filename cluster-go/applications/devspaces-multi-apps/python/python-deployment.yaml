@@ -15,7 +15,7 @@ metadata:
     app.kubernetes.io/instance: python-basic
     app.kubernetes.io/name: python-basic
     app.kubernetes.io/part-of: python-basic-app
-    app.openshift.io/runtime: python-basic
+    app.openshift.io/runtime: python
   name: python-basic
   namespace: multi-apps
 spec:
