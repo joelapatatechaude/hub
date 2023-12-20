@@ -12,7 +12,7 @@ metadata:
     app.kubernetes.io/part-of: python-basic-app
     app.openshift.io/runtime: python-basic
   name: python-basic
-  namespace: apps2
+  namespace: multi-apps
 spec:
   port:
     targetPort: "8081"

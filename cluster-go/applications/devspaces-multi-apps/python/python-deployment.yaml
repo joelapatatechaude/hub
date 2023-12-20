@@ -6,7 +6,7 @@ metadata:
     app.openshift.io/route-disabled: "false"
     app.openshift.io/vcs-ref: ""
     app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/devfile-sample-python-basic
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"python-basic:latest","namespace":"apps2"},"fieldPath":"spec.template.spec.containers[?(@.name==\"python-basic\")].image","pause":"false"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"python-basic:latest","namespace":"multi-apps"},"fieldPath":"spec.template.spec.containers[?(@.name==\"python-basic\")].image","pause":"false"}]'
     isFromDevfile: "true"
     openshift.io/generated-by: OpenShiftWebConsole
   labels:
@@ -38,7 +38,7 @@ spec:
         deployment: python-basic
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/apps2/python-basic:latest
+      - image: image-registry.openshift-image-registry.svc:5000/multi-apps/python-basic:latest
         imagePullPolicy: Always
         name: python-basic
         ports:
