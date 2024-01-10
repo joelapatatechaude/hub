@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookinfo
+  namespace: openshift-gitops
+  labels:
+    type: applications
+    service: ServiceMesh
+spec:
+  destination:
+    name: hub
+    namespace: bookinfo-mesh
+  project: hub
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/applications/bookinfo-servicemesh
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=true
