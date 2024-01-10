@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bookinfo
+  name: bookinfo-mesh
   namespace: openshift-gitops
   labels:
     type: applications
@@ -9,7 +9,7 @@ metadata:
 spec:
   destination:
     name: hub
-    namespace: bookinfo-mesh
+    namespace: bookinfo
   project: hub
   source:
     directory:
