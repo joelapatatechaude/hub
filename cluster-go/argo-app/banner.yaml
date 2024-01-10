@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hub-users
+  name: hub-banner
   namespace: openshift-gitops
   labels:
     type: bootstrap
@@ -14,16 +14,9 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: cluster-go/bootstrap/users
+    path: cluster-go/bootstrap/banner
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
     automated: {}
     syncOptions:
     - Prune=true
-  ignoreDifferences:
-  - group: null
-    kind: Secret
-    jsonPointers:
-    - /data
-    - /metadata
-    namespace: openshift-authentication
