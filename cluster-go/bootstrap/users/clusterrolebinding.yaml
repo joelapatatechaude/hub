@@ -10,3 +10,7 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: zeadmin
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: arslan-admin
+
