@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ServiceMesh-operators
+  name: servicemesh-operators
   namespace: openshift-gitops
   labels:
     type: operator

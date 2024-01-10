@@ -1,0 +1,10 @@
+apiVersion: maistra.io/v1
+kind: ServiceMeshMember
+metadata:
+  name: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
+spec:
+  controlPlaneRef:
+    namespace: bookinfo-mesh
+    name: basic
