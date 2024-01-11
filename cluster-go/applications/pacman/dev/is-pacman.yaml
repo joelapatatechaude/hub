@@ -17,4 +17,4 @@ spec:
   lookupPolicy:
     local: false
 status:
-  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/dev/pacman
+  dockerImageRepository: image-registry.openshift-image-registry.svc:5000/pacman-dev/pacman

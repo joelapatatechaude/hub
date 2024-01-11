@@ -20,7 +20,7 @@ spec:
   - default: main
     name: GIT_REVISION
     type: string
-  - default: image-registry.openshift-image-registry.svc:5000/dev/pacman
+  - default: image-registry.openshift-image-registry.svc:5000/pacman-dev/pacman
     name: IMAGE_NAME
     type: string
   - default: .
