@@ -1,0 +1,21 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: mongo
+  labels:
+    app: mongo
+    app.kubernetes.io/component: mongo
+    app.kubernetes.io/instance: mongo
+    app.kubernetes.io/name: mongo
+    app.kubernetes.io/part-of: pacman-app
+spec:
+  ports:
+    - name: 27017-tcp
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
+  type: ClusterIP
+  selector:
+    deployment: mongo
+status:
+  loadBalancer: {}

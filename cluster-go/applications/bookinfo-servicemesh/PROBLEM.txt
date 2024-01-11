@@ -1,0 +1,2 @@
+At the moment, I need to manually sunc the namespace, and the servicemeshcontorlplane (basic) FIRST. I have syncwaves, but didn't seem to work. I probably need to look ath the settings that ignore misssing CRDs.
+Slight problem: I think that once I deployed one service mesh control plane, I would need to start from aan empty cluster to reproduce the problem, I think.
