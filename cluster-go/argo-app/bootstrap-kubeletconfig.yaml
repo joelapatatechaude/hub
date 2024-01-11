@@ -1,11 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: pacman
+  name: hub-kubeletconfig
   namespace: openshift-gitops
   labels:
-    type: applications
-    app: pacman
+    type: bootstrap
 spec:
   destination:
     name: hub
@@ -14,9 +13,9 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: cluster-go/applications/pacman
+    path: cluster-go/bootstrap/KubeletConfig
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
+    automated: {}
     syncOptions:
     - Prune=true
-    - CreateNamespace=true

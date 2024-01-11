@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pacman-dev
+  namespace: openshift-gitops
+  labels:
+    type: applications
+    app: pacman
+spec:
+  destination:
+    name: hub
+    namespace: pacman-dev
+  project: hub
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/applications/pacman/dev
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=true
