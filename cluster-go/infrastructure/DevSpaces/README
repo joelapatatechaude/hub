@@ -1,0 +1,1 @@
+KUBECONFIG=../../../cluster-local/auth/kubeconfig kubeseal -f github-oauth-secret.yaml -w github-oauth-secret-sealed.yaml
