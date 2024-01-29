@@ -3,16 +3,16 @@ kind: ImageStream
 metadata:
   annotations:
     app.openshift.io/vcs-ref: ""
-    app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/devfile-sample-python-basic
+    app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/python-hello-world
     openshift.io/generated-by: OpenShiftWebConsole
   labels:
-    app: python-basic
-    app.kubernetes.io/component: python-basic
-    app.kubernetes.io/instance: python-basic
-    app.kubernetes.io/name: python-basic
-    app.kubernetes.io/part-of: python-basic-app
-    app.openshift.io/runtime: python-basic
-  name: python-basic
+    app: python-hello-world
+    app.kubernetes.io/component: python-hello-world
+    app.kubernetes.io/instance: python-hello-world
+    app.kubernetes.io/name: python-hello-world
+    app.kubernetes.io/part-of: python-hello-world
+    app.openshift.io/runtime: python
+  name: python-hello-world
   namespace: multi-apps
 spec:
   lookupPolicy:

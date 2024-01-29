@@ -3,43 +3,51 @@ kind: BuildConfig
 metadata:
   annotations:
     app.openshift.io/vcs-ref: ""
-    app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/devfile-sample-python-basic
+    app.openshift.io/vcs-uri: https://github.com/joelapatatechaude/python-hello-world
     openshift.io/generated-by: OpenShiftWebConsole
   labels:
-    app: python-basic
-    app.kubernetes.io/component: python-basic
-    app.kubernetes.io/instance: python-basic
-    app.kubernetes.io/name: python-basic
-    app.kubernetes.io/part-of: python-basic-app
-    app.openshift.io/runtime: python-basic
-  name: python-basic
+    app: python-hello-world
+    app.kubernetes.io/component: python-hello-world
+    app.kubernetes.io/instance: python-hello-world
+    app.kubernetes.io/name: python-hello-world
+    app.kubernetes.io/part-of: python-hello-world-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.9-ubi8
+  name: python-hello-world
   namespace: multi-apps
+
 spec:
-  failedBuildsHistoryLimit: 5
   nodeSelector: null
   output:
     to:
       kind: ImageStreamTag
-      name: python-basic:latest
-  postCommit: {}
+      name: 'python-hello-world:latest'
   resources: {}
-  runPolicy: Serial
-  source:
-    git:
-      uri: https://github.com/joelapatatechaude/devfile-sample-python-basic
-    type: Git
-  strategy:
-    dockerStrategy:
-      dockerfilePath: docker/Dockerfile
-    type: Docker
   successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'python:3.9-ubi8'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/joelapatatechaude/python-hello-world'
+    contextDir: /
   triggers:
-  - generic:
-      secretReference:
-        name: python-basic-generic-webhook-secret
-    type: Generic
-  - github:
-      secretReference:
-        name: python-basic-github-webhook-secret
-    type: GitHub
-  - type: ConfigChange
+    - type: Generic
+      generic:
+        secretReference:
+          name: python-hello-world-generic-webhook-secret
+    - type: GitHub
+      github:
+        secretReference:
+          name: python-hello-world-github-webhook-secret
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+  runPolicy: Serial
