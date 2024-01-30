@@ -1,0 +1,30 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: web-nodejs-sample
+  namespace: multi-apps
+  labels:
+    app: web-nodejs-sample
+    app.kubernetes.io/component: web-nodejs-sample
+    app.kubernetes.io/instance: web-nodejs-sample
+    app.kubernetes.io/name: web-nodejs-sample
+    app.kubernetes.io/part-of: web-nodejs-sample-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: 'https://github.com/joelapatatechaude/web-nodejs-sample'
+    openshift.io/generated-by: OpenShiftWebConsole
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 3000
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: web-nodejs-sample
+    deployment: web-nodejs-sample

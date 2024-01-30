@@ -1,0 +1,52 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: 'https://github.com/joelapatatechaude/web-nodejs-sample'
+    openshift.io/generated-by: OpenShiftWebConsole
+  name: web-nodejs-sample
+  namespace: multi-apps
+  labels:
+    app: web-nodejs-sample
+    app.kubernetes.io/component: web-nodejs-sample
+    app.kubernetes.io/instance: web-nodejs-sample
+    app.kubernetes.io/name: web-nodejs-sample
+    app.kubernetes.io/part-of: web-nodejs-sample-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'web-nodejs-sample:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'nodejs:16-ubi8'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/joelapatatechaude/web-nodejs-sample'
+    contextDir: /
+  triggers:
+    - type: Generic
+      generic:
+        secretReference:
+          name: web-nodejs-sample-generic-webhook-secret
+    - type: GitHub
+      github:
+        secretReference:
+          name: web-nodejs-sample-github-webhook-secret
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+  runPolicy: Serial

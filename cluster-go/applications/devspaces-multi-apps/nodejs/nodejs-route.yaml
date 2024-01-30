@@ -1,0 +1,26 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: web-nodejs-sample
+  namespace: multi-apps
+  labels:
+    app: web-nodejs-sample
+    app.kubernetes.io/component: web-nodejs-sample
+    app.kubernetes.io/instance: web-nodejs-sample
+    app.kubernetes.io/name: web-nodejs-sample
+    app.kubernetes.io/part-of: web-nodejs-sample-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  to:
+    kind: Service
+    name: web-nodejs-sample
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
