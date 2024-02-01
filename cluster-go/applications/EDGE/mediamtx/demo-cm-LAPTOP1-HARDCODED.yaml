@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: demo-cm
+data:
+  INGRESS_IP: "10.76.19.236"
+  LIMIT_CPU: "4"
+  REQUEST_CPU: "2"
