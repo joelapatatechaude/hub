@@ -1,2 +1,0 @@
-KUBECONFIG=../../../cluster-local/auth/kubeconfig kubeseal -f cert-secret.yaml -w cert-secret-sealed.yaml 
-KUBECONFIG=../../../cluster-local/auth/kubeconfig kubeseal -f key-secret.yaml -w key-secret-sealed.yaml 
