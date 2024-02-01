@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: mediamtx
-  namespace: edge
+  namespace: edge-demo
 spec:
   ipFamilies:
     - IPv4

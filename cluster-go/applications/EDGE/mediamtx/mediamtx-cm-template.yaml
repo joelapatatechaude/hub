@@ -525,4 +525,4 @@ data:
 kind: ConfigMap
 metadata:
   name: mediamtx-yml-cm
-  namespace: edge
+  namespace: edge-demo
