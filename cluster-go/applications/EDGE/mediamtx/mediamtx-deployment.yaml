@@ -1,0 +1,87 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+  name: mediamtx
+  namespace: edge
+  labels:
+    app: mediamtx
+    app.kubernetes.io/component: mediamtx
+    app.kubernetes.io/instance: mediamtx
+    app.kubernetes.io/name: mediamtx
+    app.openshift.io/runtime-namespace: edge
+    app.openshift.io/runtime: golang
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mediamtx
+  template:
+    metadata:
+      annotations:
+        alpha.image.policy.openshift.io/resolve-names: '*'
+      labels:
+        app: mediamtx
+        deployment: mediamtx
+    spec:
+      volumes:
+        - configMap:
+            name: mediamtx-yml-cm
+          name: mediamtx-yml-vol
+        - secret:
+            secretName: server-key-secret
+          name: server-key-vol
+        - secret:
+            secretName: server-cert-secret
+          name: server-cert-vol
+        - name: demo-cm
+          configMap:
+            name: demo-cm
+      containers:
+        - name: mediamtx
+          image: mediamtx:latest
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: demo-cm
+          volumeMounts:
+            - mountPath: /mediamtx.yml.template
+              subPath: mediamtx.yml.template
+              name: mediamtx-yml-vol
+            - name: server-key-vol
+              mountPath: /server.key
+              subPath: server.key
+            - name: server-cert-vol
+              mountPath: /server.crt
+              subPath: server.crt
+          ports:
+            - containerPort: 1935
+              protocol: TCP
+            - containerPort: 8000
+              protocol: UDP
+            - containerPort: 8001
+              protocol: UDP
+            - containerPort: 8554
+              protocol: TCP
+            - containerPort: 8888
+              protocol: TCP
+            - containerPort: 8889
+              protocol: TCP
+            - containerPort: 8890
+              protocol: UDP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

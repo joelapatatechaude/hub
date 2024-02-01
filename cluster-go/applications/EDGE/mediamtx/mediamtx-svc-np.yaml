@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mediamtx-np
+  namespace: edge
+  labels:
+    name: mediamtx-np
+spec:
+  type: NodePort
+  ports:
+    - port: 8889
+      nodePort: 30889
+      name: http
+    - port: 30189
+      nodePort: 30189
+      name: http-again
+    - port: 8554
+      nodePort: 30554
+      name: rtsp
+    - port: 9997
+      nodePort: 30997
+      name: http-api
+
+  selector:
+    app: mediamtx
+    deployment: mediamtx

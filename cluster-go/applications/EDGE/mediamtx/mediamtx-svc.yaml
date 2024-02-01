@@ -1,0 +1,49 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mediamtx
+  namespace: edge
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 1935-tcp
+      protocol: TCP
+      port: 1935
+      targetPort: 1935
+    - name: 8000-udp
+      protocol: UDP
+      port: 8000
+      targetPort: 8000
+    - name: 8001-udp
+      protocol: UDP
+      port: 8001
+      targetPort: 8001
+    - name: 8554-tcp
+      protocol: TCP
+      port: 8554
+      targetPort: 8554
+    - name: 8888-tcp
+      protocol: TCP
+      port: 8888
+      targetPort: 8888
+    - name: 8889-tcp
+      protocol: TCP
+      port: 8889
+      targetPort: 8889
+    - name: 8890-udp
+      protocol: UDP
+      port: 8890
+      targetPort: 8890
+    - name: api
+      protocol: TCP
+      port: 9997
+      targetPort: 9997
+
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: mediamtx
+    deployment: mediamtx
