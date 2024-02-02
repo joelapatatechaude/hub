@@ -5,5 +5,5 @@ metadata:
   namespace: edge
 data:
   INGRESS_IP: "10.76.19.236"
-  LIMIT_CPU: "4"
-  REQUEST_CPU: "2"
+  LIMIT_CPU: "7"
+  REQUEST_CPU: "4"
