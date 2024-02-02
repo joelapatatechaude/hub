@@ -30,7 +30,7 @@ spec:
       serviceAccountName: cron-sa
       containers:
         - name: controller
-          image: ose-cli-edge:controller
+          image: quay.io/rh_ee_cschmitz/ose-cli-edge:controller
           envFrom:
             - configMapRef:
                 name: demo-cm
