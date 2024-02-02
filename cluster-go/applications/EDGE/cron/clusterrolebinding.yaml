@@ -9,4 +9,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: cron-sa
-    namespace: edge-demo
+    namespace: edge
