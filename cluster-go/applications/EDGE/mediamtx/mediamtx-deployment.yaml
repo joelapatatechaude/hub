@@ -40,7 +40,7 @@ spec:
             name: demo-cm
       containers:
         - name: mediamtx
-          image: mediamtx:latest
+          image: quay.io/rh_ee_cschmitz/mediamtx:latest
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
