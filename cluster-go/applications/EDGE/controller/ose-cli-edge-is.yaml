@@ -1,0 +1,29 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: ose-cli-edge
+  namespace: edge
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - annotations: null
+    from:
+      kind: DockerImage
+      name: quay.io/rh_ee_cschmitz/ose-cli-edge:controller
+    generation: 1
+    importPolicy:
+      importMode: Legacy
+    name: controller
+    referencePolicy:
+      type: Source
+  - annotations: null
+    from:
+      kind: DockerImage
+      name: quay.io/rh_ee_cschmitz/ose-cli-edge:latest
+    generation: 1
+    importPolicy:
+      importMode: Legacy
+    name: latest
+    referencePolicy:
+      type: Source
