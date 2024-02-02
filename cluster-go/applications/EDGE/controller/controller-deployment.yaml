@@ -3,13 +3,13 @@ apiVersion: apps/v1
 metadata:
   annotations:
   name: controller
-  namespace: edge-demo
+  namespace: edge
   labels:
     app: controller
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: controller
     app.kubernetes.io/name: controller
-    app.openshift.io/runtime-namespace: edge-demo
+    app.openshift.io/runtime-namespace: edge
 spec:
   replicas: 1
   selector:

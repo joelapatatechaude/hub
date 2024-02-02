@@ -3,13 +3,13 @@ apiVersion: apps/v1
 metadata:
   annotations:
   name: mediamtx
-  namespace: edge-demo
+  namespace: edge
   labels:
     app: mediamtx
     app.kubernetes.io/component: mediamtx
     app.kubernetes.io/instance: mediamtx
     app.kubernetes.io/name: mediamtx
-    app.openshift.io/runtime-namespace: edge-demo
+    app.openshift.io/runtime-namespace: edge
     app.openshift.io/runtime: golang
 
 spec:

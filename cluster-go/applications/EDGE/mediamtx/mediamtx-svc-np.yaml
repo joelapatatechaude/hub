@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mediamtx-np
-  namespace: edge-demo
+  namespace: edge
   labels:
     name: mediamtx-np
 spec:

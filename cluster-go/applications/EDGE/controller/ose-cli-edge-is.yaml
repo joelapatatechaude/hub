@@ -2,7 +2,7 @@ apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
   name: ose-cli-edge
-  namespace: edge-demo
+  namespace: edge
 spec:
   lookupPolicy:
     local: true
