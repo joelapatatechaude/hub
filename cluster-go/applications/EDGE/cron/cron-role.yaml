@@ -8,7 +8,6 @@ rules:
     resources: ["deployments"]
     resourceNames: ["*"]
     verbs: ["get", "patch", "list", "watch", "update"]
-    namespace: ["edge-demo"]
   - apiGroups: [""]
     resources: ["replicationcontrollers"]
     verbs: ["get"]
