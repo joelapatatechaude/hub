@@ -1,4 +1,4 @@
-apiVersion: rbac.authorization.k8s.io/v1
+lsapiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: cron-rolebinding
@@ -10,4 +10,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: cron-sa
-    namespace: edge-demo
+    namespace: edge
