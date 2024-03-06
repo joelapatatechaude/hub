@@ -1,1 +1,7 @@
 KUBECONFIG=../../../cluster-local/auth/kubeconfig kubeseal -f github-oauth-secret.yaml -w github-oauth-secret-sealed.yaml
+
+OR
+
+KUBECONFIG=../../../cluster/auth/kubeconfig kubeseal -f github-oauth-secret.yaml -w github-oauth-secret-sealed.yaml
+
+SO THAT'S A BIT OF A PROBLEM I HAVE TO SWITCH FOR DIFFERENT CLUSTER???
