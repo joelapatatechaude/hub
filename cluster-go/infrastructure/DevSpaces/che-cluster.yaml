@@ -21,8 +21,8 @@ spec:
   devEnvironments:
     startTimeoutSeconds: 300
     secondsOfRunBeforeIdling: -1
-    maxNumberOfWorkspacesPerUser: 6
-    maxNumberOfRunningWorkspacesPerUser: 4
+    maxNumberOfWorkspacesPerUser: 7
+    maxNumberOfRunningWorkspacesPerUser: 5
     containerBuildConfiguration:
       openShiftSecurityContextConstraint: container-build
     defaultNamespace:
