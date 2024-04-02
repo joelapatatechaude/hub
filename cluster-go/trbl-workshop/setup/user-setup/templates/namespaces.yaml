@@ -1,0 +1,10 @@
+{{- if .Values.namespaceCount | int }}
+{{- $namespaceCount := .Values.namespaceCount | int }}
+{{- range $index := until $namespaceCount }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: user{{ printf "%02d" (add $index 1) }}
+{{- end }}
+{{- end }}
