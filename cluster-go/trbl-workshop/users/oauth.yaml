@@ -4,9 +4,9 @@ metadata:
   name: cluster
 spec:
   identityProviders:
-  - name: htpasswd-workshop
+  - name: htpasswd
     mappingMethod: claim
     type: HTPasswd
     htpasswd:
       fileData:
-        name: htpass-my-secret-workshop
+        name: htpass-my-secret
