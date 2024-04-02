@@ -12,8 +12,5 @@ spec:
   project: hub
   sources:
     - helm:
-        parameters:
-          - name: userCount
-            value: 20
       path: cluster-go/trbl-workshop/setup/user-setup
       repoURL: https://github.com/joelapatatechaude/hub/
