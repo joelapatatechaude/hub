@@ -1,6 +1,6 @@
-{{- if .Values.namespaceCount | int }}
-{{- $namespaceCount := .Values.namespaceCount | int }}
-{{- range $index := until $namespaceCount }}
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
 ---
 apiVersion: v1
 kind: Namespace
