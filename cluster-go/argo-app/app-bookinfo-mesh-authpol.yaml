@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookinfo-mesh-authpol
+  namespace: openshift-gitops
+  labels:
+    app: bookinfo
+spec:
+  destination:
+    name: hub
+    namespace: bookinfo
+  project: hub
+  sources:
+    - directory:
+        jsonnet: {}
+        recurse: true
+      path: cluster-go/applications/bookinfo-mesh-authpol
+      repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=false

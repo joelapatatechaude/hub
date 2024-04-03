@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bookinfo-mesh-spy
+  namespace: openshift-gitops
+  labels:
+    app: bookinfo
+spec:
+  destination:
+    name: hub
+    namespace: bookinfo
+  project: hub
+  sources:
+    - directory:
+        jsonnet: {}
+        recurse: true
+        exclude: '{occm/*}'
+      path: cluster-go/applications/bookinfo-mesh-spy
+      repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=false

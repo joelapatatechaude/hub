@@ -1,0 +1,35 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: mongo-init
+immutable: false
+data:
+  load-data.sh: |
+    #!/bin/sh
+    set -eux
+    echo "hello"
+    #cat << EOF > /docker-entrypoint-initdb.d/1-init-mongo.js
+    #let error = true
+    #let res = [
+    #  use test;
+    #  db.createCollection("ratings");
+    #  db.ratings.insert([{rating: 4},{rating: 5}])
+    #]
+    #printjson(res)
+    #if (error) {
+    #  print('Error, exiting')
+    #  quit(1)
+    #}
+    #EOF
+    ls /
+    ls /docker-entrypoint-initdb.d
+    whoami
+    cat << EOF > /docker-entrypoint-initdb.d/2-init-mongo.sh
+    #!/bin/sh
+    mongo --eval 'printjson(db.createCollection("ratings"))'
+    mongo --eval 'printjson(db.ratings.insert([{rating:5}, {rating:4}]))'
+    EOF
+    chmod 555 /docker-entrypoint-initdb.d/2-init-mongo.sh
+    ls -la /docker-entrypoint-initdb.d/
+    echo "byby"
+

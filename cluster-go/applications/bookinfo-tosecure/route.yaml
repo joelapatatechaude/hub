@@ -1,0 +1,17 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: bookinfo
+  labels:
+    app: productpage
+    service: productpage
+spec:
+  to:
+    kind: Service
+    name: productpage
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+  wildcardPolicy: None
