@@ -9,14 +9,14 @@ metadata:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/route-disabled: 'false'
   name: pacman
-  namespace: user{{ printf "%02d" (add $index 1) }}
+  namespace: exercise01-user{{ printf "%02d" (add $index 1) }}
   labels:
     app: pacman
     app.kubernetes.io/component: pacman
     app.kubernetes.io/instance: pacman
     app.kubernetes.io/name: pacman
     app.openshift.io/runtime: nodejs
-    app.openshift.io/runtime-namespace: user{{ printf "%02d" (add $index 1) }}
+    app.openshift.io/runtime-namespace: exercise01-user{{ printf "%02d" (add $index 1) }}
 spec:
   replicas: 1
   selector:
