@@ -8,34 +8,34 @@ metadata:
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/route-disabled: 'false'
-  name: pacman
+  name: chess
   namespace: exercise02-user{{ printf "%02d" (add $index 1) }}
   labels:
-    app: pacman
-    app.kubernetes.io/component: pacman
-    app.kubernetes.io/instance: pacman
-    app.kubernetes.io/name: pacman
+    app: chess
+    app.kubernetes.io/component: chess
+    app.kubernetes.io/instance: chess
+    app.kubernetes.io/name: chess
     app.openshift.io/runtime: nodejs
     app.openshift.io/runtime-namespace: exercise02-user{{ printf "%02d" (add $index 1) }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pacman
+      app: chess
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: pacman
-        deployment: pacman
+        app: chess
+        deployment: chess
       annotations:
         openshift.io/generated-by: OpenShiftWebConsole
     spec:
       containers:
-        - name: pacman
-          image: 'quay.io/rh_ee_cschmitz/pacmad:latest'
+        - name: chess
+          image: 'quay.io/rh_ee_cschmitz/chess-node:latest'
           ports:
-            - containerPort: 8080
+            - containerPort: 3000
               protocol: TCP
           resources: {}
           terminationMessagePath: /dev/termination-log
