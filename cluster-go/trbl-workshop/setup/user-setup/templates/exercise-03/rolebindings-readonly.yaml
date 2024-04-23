@@ -14,7 +14,7 @@ subjects:
     name:  user{{ printf "%02d" (add $index 1) }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
+  kind: Role
   name: view
 {{- end }}
 {{- end }}
