@@ -8,31 +8,31 @@ metadata:
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/route-disabled: 'false'
-  name: puzzle2048
+  name: puzzle2049
   namespace: exercise03-user{{ printf "%02d" (add $index 1) }}
   labels:
-    app: puzzle2048
-    app.kubernetes.io/component: puzzle2048
-    app.kubernetes.io/instance: puzzle2048
-    app.kubernetes.io/name: puzzle2048
+    app: puzzle2049
+    app.kubernetes.io/component: puzzle2049
+    app.kubernetes.io/instance: puzzle2049
+    app.kubernetes.io/name: puzzle2049
     app.openshift.io/runtime: nginx
     app.openshift.io/runtime-namespace: exercise03-user{{ printf "%02d" (add $index 1) }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: puzzle2048
+      app: puzzle2049
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: puzzle2048
-        deployment: puzzle2048
+        app: puzzle2049
+        deployment: puzzle2049
       annotations:
         openshift.io/generated-by: OpenShiftWebConsole
     spec:
       containers:
-        - name: puzzle2048
+        - name: puzzle2049
           image: 'quay.io/rh_ee_cschmitz/puzzle2048:latest'
           resources:
             limits:
