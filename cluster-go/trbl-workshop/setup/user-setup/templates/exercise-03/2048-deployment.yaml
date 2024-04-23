@@ -34,6 +34,11 @@ spec:
       containers:
         - name: puzzle2048
           image: 'quay.io/rh_ee_cschmitz/puzzle2048:latest'
+          resources:
+            limits:
+              memory: 300Mi
+            requests:
+              memory: 300Mi
           ports:
             - containerPort: 8080
               protocol: TCP
