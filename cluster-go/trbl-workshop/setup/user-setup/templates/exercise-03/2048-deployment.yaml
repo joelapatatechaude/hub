@@ -18,7 +18,7 @@ metadata:
     app.openshift.io/runtime: nginx
     app.openshift.io/runtime-namespace: exercise03-user{{ printf "%02d" (add $index 1) }}
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: puzzle2048
@@ -38,7 +38,7 @@ spec:
             limits:
               memory: 300Mi
             requests:
-              memory: 300Mi
+              memory: 100Mi
           ports:
             - containerPort: 8080
               protocol: TCP
