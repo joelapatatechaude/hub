@@ -13,7 +13,7 @@ spec:
     requests.memory: 15Mi
     limits.memory: 30Mi
     requests.cpu: 20m
-    limites.cpu: 30m
+    limits.cpu: 30m
 
 {{- end }}
 {{- end }}
