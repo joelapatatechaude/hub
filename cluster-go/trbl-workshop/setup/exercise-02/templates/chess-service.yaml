@@ -1,0 +1,19 @@
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: chess
+  namespace: exercise02-user{{ printf "%02d" (add $index 1) }}
+spec:
+  selector:
+    app: chess
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+{{- end }}
+{{- end }}
