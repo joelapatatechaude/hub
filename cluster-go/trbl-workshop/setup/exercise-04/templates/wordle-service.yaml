@@ -3,19 +3,17 @@
 {{- range $index := until $userCount }}
 ---
 
-kind: Route
-apiVersion: route.openshift.io/v1
+apiVersion: v1
+kind: Service
 metadata:
-  name: pacman
+  name: wordle
   namespace: exercise04-user{{ printf "%02d" (add $index 1) }}
-  labels: {}
 spec:
-  to:
-    kind: Service
-    name: pacman
-  tls: {}
-  port:
-    targetPort: 8080
-
+  selector:
+    app: wordle
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
 {{- end }}
 {{- end }}
