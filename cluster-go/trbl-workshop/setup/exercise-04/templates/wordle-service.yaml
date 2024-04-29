@@ -10,10 +10,10 @@ metadata:
   namespace: exercise04-user{{ printf "%02d" (add $index 1) }}
 spec:
   selector:
-    app: wordle
+    app: poodle
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 5000
+      targetPort: 8080
 {{- end }}
 {{- end }}
