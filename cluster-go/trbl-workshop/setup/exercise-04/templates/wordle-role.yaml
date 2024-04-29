@@ -1,0 +1,11 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: wordle-role
+rules:
+- apiGroups: [""]
+  resources: ["services"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: [""]
+  resources: ["pods", "deployments", "configmaps", "secrets", "ingresses", "persistentvolumeclaims", "events", "endpoints"]
+  verbs: ["get", "list", "watch"]
