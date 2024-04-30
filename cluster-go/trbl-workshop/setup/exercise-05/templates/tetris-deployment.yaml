@@ -34,11 +34,6 @@ spec:
       containers:
         - name: tetris
           image: 'quay.io/rh_ee_cschmitz/tetris:latest'
-          resources:
-            limits:
-              memory: 300Mi
-            requests:
-              memory: 100Mi
           ports:
             - containerPort: 8080
               protocol: TCP
