@@ -18,7 +18,7 @@ metadata:
     app.openshift.io/runtime: react
     app.openshift.io/runtime-namespace: exercise05-user{{ printf "%02d" (add $index 1) }}
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: tetris
