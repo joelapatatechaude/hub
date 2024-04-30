@@ -6,5 +6,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: exercise05-user{{ printf "%02d" (add $index 1) }}
+  labels:
+    musthavenodeselector: "true"
 {{- end }}
 {{- end }}
