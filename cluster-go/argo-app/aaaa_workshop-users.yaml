@@ -4,7 +4,7 @@ metadata:
   name: workshop-users
   namespace: openshift-gitops
   labels:
-    type: workshop
+    type: workshop-trbl
 spec:
   destination:
     name: hub
