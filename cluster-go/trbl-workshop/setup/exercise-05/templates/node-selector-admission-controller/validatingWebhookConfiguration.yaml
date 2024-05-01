@@ -1,0 +1,28 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: node-selector-admission-controller
+  namespace: admission-controller-exercise05
+  annotations:
+    service.beta.openshift.io/inject-cabundle: "true"
+webhooks:
+- name: nsac-route-admission-controller-exercise05.apps.hub.cszevaco.com
+  clientConfig:
+    service:
+      namespace: admission-controller-exercise05
+      name: nsac-service
+      path: /admit
+      port: 443
+  admissionReviewVersions:
+  - v1
+  sideEffects: None
+  namespaceSelector:
+    matchLabels:
+      musthavenodeselector: "true"
+  rules:
+  - operations: ["CREATE", "UPDATE"]
+    apiGroups: [""]
+    apiVersions: ["v1"]
+    resources: ["pods"]
+    scope: Namespaced
+    # Specify the namespaces where this webhook applies

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-selector-admission-controller
+  namespace: admission-controller-exercise05
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-selector-admission-controller
+  template:
+    metadata:
+      labels:
+        app: node-selector-admission-controller
+    spec:
+      volumes:
+        - name: nsac-tls
+          secret:
+            secretName: nsac-tls
+      containers:
+      - name: node-selector-admission-controller
+        image: quay.io/rh_ee_cschmitz/node-selector-admission-controller:exercise05
+        volumeMounts:
+          - mountPath: "/mount"
+            name: nsac-tls
+            readOnly: true
+        env:
+        - name: TLS_CERT_FILE
+          value: "/mount/tls.crt"
+        - name: TLS_KEY_FILE
+          value: "/mount/tls.key"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8443
