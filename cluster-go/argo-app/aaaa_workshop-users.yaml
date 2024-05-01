@@ -11,18 +11,10 @@ spec:
     namespace: default
   project: hub
   source:
-    directory:
-      jsonnet: {}
-      recurse: true
     path: cluster-go/trbl-workshop/users
-    repoURL: https://github.com/joelapatatechaude/hub
-  syncPolicy:
-    syncOptions:
-    - Prune=true
-  ignoreDifferences:
-  - group: null
-    kind: Secret
-    jsonPointers:
-    - /data
-    - /metadata
-    namespace: openshift-authentication
+    repoURL: https://github.com/joelapatatechaude/hub/
+    targetRevision: main
+    helm:
+      parameters:
+      - name: "userCount"
+        value: "21"
