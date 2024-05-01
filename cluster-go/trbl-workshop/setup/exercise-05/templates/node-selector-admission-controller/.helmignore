@@ -1,3 +1,4 @@
 main.go
 Dockerfile
 README.txt
+.dockerignore

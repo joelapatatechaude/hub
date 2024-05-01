@@ -1,4 +1,4 @@
 node-selector-admission-controller
-deployment.yaml
 Dockerfile
 *.yaml
+README.txt
