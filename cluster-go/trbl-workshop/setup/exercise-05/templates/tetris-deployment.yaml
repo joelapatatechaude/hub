@@ -31,6 +31,8 @@ spec:
       annotations:
         openshift.io/generated-by: OpenShiftWebConsole
     spec:
+      nodeSelector:
+        run.on.node: that-have-this
       containers:
         - name: tetris
           image: 'quay.io/rh_ee_cschmitz/tetris:latest'
