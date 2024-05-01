@@ -21,3 +21,7 @@
 .idea/
 *.tmproj
 .vscode/
+templates/node-selector-admission-controller/.dockerignore
+templates/node-selector-admission-controller/README.txt
+templates/node-selector-admission-controller/Dockerfile
+templates/node-selector-admission-controller/main.go
