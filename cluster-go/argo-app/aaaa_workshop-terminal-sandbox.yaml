@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: workshop-terminal-sandbox
+  namespace: openshift-gitops
+  labels:
+    type: workshop-trbl
+spec:
+  destination:
+    name: hub
+    namespace: default
+  project: hub
+  source:
+    path: cluster-go/trbl-workshop/setup/terminal-sandbox
+    repoURL: https://github.com/joelapatatechaude/hub/
+    targetRevision: main
+    helm:
+      parameters:
+      - name: "userCount"
+        value: "21"
