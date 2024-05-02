@@ -9,8 +9,7 @@ metadata:
   namespace: exercise06-user{{ printf "%02d" (add $index 1) }}
   labels:
     app: hello-world
-  annotations:
-    finalizers:
+  finalizers:
     - kubernetes.io/this-finalizer-doesnt-exist
 spec:
   containers:
