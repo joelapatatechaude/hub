@@ -8,8 +8,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: terminal-sandbox-user{{ printf "%02d" (add $index 1) }}-admin-wxyz
   namespace: terminal-sandbox-user{{ printf "%02d" (add $index 1) }}
-  finalizers:
-    - kubernetes
 subjects:
   - kind: User
     apiGroup: rbac.authorization.k8s.io
