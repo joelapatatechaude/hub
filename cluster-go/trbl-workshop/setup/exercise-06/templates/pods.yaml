@@ -5,21 +5,26 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hello-world
+  name: tictactoe
   namespace: exercise06-user{{ printf "%02d" (add $index 1) }}
   labels:
-    app: hello-world
+    app: tictactoe
   finalizers:
     - kubernetes.io/this-finalizer-doesnt-exist
 spec:
   containers:
-  - name: hello-world
-    image: quay.io/rh_ee_cschmitz/hello-world-hostname:latest
+  - name: tictactoe
+    image: quay.io/rh_ee_cschmitz/tictactoe:latest
     imagePullPolicy: Always
+    volumeMounts:
+      - mountPath: /data
+        name: tictactoe-data
     ports:
-      - containerPort: 8080
+      - containerPort: 3000
         protocol: TCP
-      - containerPort: 8443
-        protocol: TCP
+  volumes:
+    - name: tictactoe-data
+      persistentVolumeClaim:
+        claimName: tictactoe-vol
 {{- end }}
 {{- end }}
