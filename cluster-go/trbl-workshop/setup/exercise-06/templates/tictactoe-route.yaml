@@ -7,7 +7,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: tictactoe
-  namespace: exercise01-user{{ printf "%02d" (add $index 1) }}
+  namespace: exercise06-user{{ printf "%02d" (add $index 1) }}
   labels: {}
 spec:
   to:
