@@ -41,6 +41,13 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
+          volumeMounts:
+          - mountPath: /data
+            name: tictactoe-data
+      volumes:
+        - name: tictactoe-data
+          persistentVolumeClaim:
+            claimName: tictactoe-vol
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
