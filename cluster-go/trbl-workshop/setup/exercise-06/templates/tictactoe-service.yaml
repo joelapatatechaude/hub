@@ -13,7 +13,7 @@ spec:
     app: tictactoe
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8080
+      port: 3000
+      targetPort: 3000
 {{- end }}
 {{- end }}
