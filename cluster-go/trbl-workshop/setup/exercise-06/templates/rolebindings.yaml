@@ -9,7 +9,7 @@ metadata:
   name: exercise06-user{{ printf "%02d" (add $index 1) }}-admin-wxyz
   namespace: exercise06-user{{ printf "%02d" (add $index 1) }}
   finalizers:
-    - kubernetes
+    - kubernetes.io/cleanup-me-last-or-you-will-be-locked-out
 subjects:
   - kind: User
     apiGroup: rbac.authorization.k8s.io
