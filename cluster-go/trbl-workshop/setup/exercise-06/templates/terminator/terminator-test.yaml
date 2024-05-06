@@ -1,0 +1,48 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: terminator-test
+  namespace: exercise06-admin-terminator
+  labels:
+    app: terminator-test
+spec:
+  restartPolicy: Always
+  serviceAccountName: terminator
+  containers:
+    - resources: {}
+      name: terminator-test
+      command:
+        - sleep
+        - infinity
+      ports:
+      volumeMounts:
+        - name: kube-api-access-jtkrm
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: 'registry.redhat.io/openshift4/ose-cli:v4.15'
+  serviceAccount: terminator
+  volumes:
+    - name: kube-api-access-jtkrm
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
