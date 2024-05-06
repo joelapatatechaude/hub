@@ -20,5 +20,6 @@ spec:
               LIST=$(oc get project | grep '^exercise06-user' | awk '{print $1}');
               echo "List of project to delete";
               echo "$LIST";
+              exit 0;
               for i in $LIST; do oc delete --wait=false project $i; done;
       restartPolicy: Never
