@@ -24,6 +24,8 @@ spec:
       app: tictactoe
   template:
     metadata:
+      finalizers:
+        - kubernetes.io/this-finalizer-doesnt-exist
       creationTimestamp: null
       labels:
         app: tictactoe
