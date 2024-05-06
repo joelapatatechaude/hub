@@ -15,7 +15,7 @@ spec:
           image: 'registry.redhat.io/openshift4/ose-cli:v4.15'
           command: ["/bin/sh", "-c"]
           args:
-            - echo "sleep 30 sec before deleting namespaces";
+            - echo "sleep about 30 sec before deleting namespaces";
               sleep 30;
               LIST=$(oc get project | grep '^exercise06-user' | awk '{print $1}');
               echo "List of project to delete";
