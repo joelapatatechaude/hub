@@ -4,7 +4,7 @@ metadata:
   name: gitops-banner
 spec:
   backgroundColor: '#3844CA'
-  color: '#000000'
+  color: '#FFFFFF'
   location: BannerTop
   text: "OpenShift @ ATO Workshop: Troubleshooting"
 
