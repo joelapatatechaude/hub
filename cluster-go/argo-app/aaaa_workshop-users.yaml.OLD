@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: workshop-users
+  namespace: openshift-gitops
+  labels:
+    type: workshop-trbl
+spec:
+  destination:
+    name: hub
+    namespace: default
+  project: hub
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/trbl-workshop/users
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+  ignoreDifferences:
+  - group: null
+    kind: Secret
+    jsonPointers:
+    - /data
+    - /metadata
+    namespace: openshift-authentication

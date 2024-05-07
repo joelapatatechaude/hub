@@ -17,6 +17,4 @@ spec:
     helm:
       parameters:
       - name: "userCount"
-        value: "3"
-
-
+        value: "12"
