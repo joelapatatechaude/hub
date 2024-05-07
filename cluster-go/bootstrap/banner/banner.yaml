@@ -1,0 +1,10 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: gitops-banner
+spec:
+  backgroundColor: '#3844CA'
+  color: '#000000'
+  location: BannerTop
+  text: "OpenShift @ ATO Workshop: Troubleshooting"
+
