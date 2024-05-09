@@ -3,8 +3,8 @@ kind: ConsoleNotification
 metadata:
   name: gitops-banner
 spec:
-  backgroundColor: '#3844CA'
-  color: '#FFFFFF'
+  backgroundColor: '#FF5F1F'
+  color: '#000000'
   location: BannerTop
-  text: "OpenShift @ ATO Workshop: Troubleshooting"
+  text: "HUB Cluster: Argo CD / ACM / ACS / Quay"
 
