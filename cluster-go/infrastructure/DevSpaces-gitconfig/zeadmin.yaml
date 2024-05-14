@@ -10,4 +10,4 @@ metadata:
     controller.devfile.io/mount-as: subpath
     controller.devfile.io/mount-path: /etc/
 data:
-  gitconfig: "[user] \n  name = zeadmin \n  email = zeadmin@redhat.com"
+  gitconfig: "[user] \n  name = Christophe Schmitz \n  email = cschmitz@redhat.com"
