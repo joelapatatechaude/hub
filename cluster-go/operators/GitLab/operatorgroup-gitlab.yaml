@@ -1,8 +1,9 @@
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: openshift-operators-redhat-xyz
-  namespace: openshift-operators-redhat
+  name: gitlab-system-xyz
+  namespace: gitlab-system
 spec:
+  targetNamespaces:
+  - gitlab-system
   upgradeStrategy: Default
-
