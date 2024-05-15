@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: edge-demo
+  namespace: openshift-gitops
+  labels:
+    type: applications
+    service: EdgeDemo
+spec:
+  destination:
+    name: hub
+  project: hub
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/applications/EDGE
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=true
+  ignoreDifferences:
+  - group: "*"
+    kind: Deployment
+    jsonPointers:
+    - /spec/template/spec/containers/0/image
