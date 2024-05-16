@@ -2,3 +2,6 @@ apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
   name: gitlab-system
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: '0'
