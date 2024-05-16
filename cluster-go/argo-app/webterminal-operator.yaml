@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
   labels:
     type: operator
-    web-terminal: ok
+    web-terminal: core
 spec:
   destination:
     name: hub

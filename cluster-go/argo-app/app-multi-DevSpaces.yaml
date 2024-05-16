@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
   labels:
     type: demo
-    devspaces: ok
+    devspaces: demo
 spec:
   destination:
     name: hub

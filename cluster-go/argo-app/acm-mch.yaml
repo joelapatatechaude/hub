@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
   labels:
     type: infrastructure
-    RHACM: ok
+    rhacm: core
 spec:
   destination:
     name: hub

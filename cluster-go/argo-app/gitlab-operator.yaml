@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
   labels:
     type: operator
-    gitlab: ok
+    gitlab: core
 spec:
   destination:
     name: hub

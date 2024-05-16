@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
   labels:
     type: operator
-    servicemesh: ok
+    servicemesh: core
 spec:
   destination:
     name: hub

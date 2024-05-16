@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
   labels:
     type: operator
-    devspaces: ok
+    devspaces: dependency
 spec:
   destination:
     name: hub
