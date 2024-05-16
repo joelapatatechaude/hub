@@ -4,8 +4,8 @@ metadata:
   name: multi-devspaces
   namespace: openshift-gitops
   labels:
-    type: applications
-    service: DevSpaces
+    type: demo
+    devspaces: ok
 spec:
   destination:
     name: hub

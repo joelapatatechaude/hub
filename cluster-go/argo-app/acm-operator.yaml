@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-gitops
   labels:
     type: operator
-    service: RHACM
+    rhacm: ok
 spec:
   destination:
     name: hub

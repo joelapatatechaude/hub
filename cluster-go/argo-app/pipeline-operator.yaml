@@ -5,7 +5,6 @@ metadata:
   namespace: openshift-gitops
   labels:
     type: operator
-    service: Pipelines
 spec:
   destination:
     name: hub
