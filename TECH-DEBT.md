@@ -23,3 +23,7 @@ LOKI operator: stable5.8 hard coded in operator
 
 
 hub project: currently public as I couldn't get the helm (workshop setup) to work in private repo.
+
+ServiceMesh: I need to selectively apply servicemeshcontrolplane first before being able to apply the whole argocd thing.
+
+GITLAB: Hard coded domain name (including hub) at this stage.
