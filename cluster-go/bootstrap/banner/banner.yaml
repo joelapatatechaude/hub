@@ -3,7 +3,7 @@ kind: ConsoleNotification
 metadata:
   name: gitops-banner
 spec:
-  backgroundColor: '#FF5F1F'
+  backgroundColor: '#FFFFFF'
   color: '#000000'
   location: BannerTop
-  text: "HUB Cluster"
+  text: "Bare Metal Cluster"
