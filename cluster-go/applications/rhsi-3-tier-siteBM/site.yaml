@@ -7,3 +7,4 @@ data:
   name: bare-metal
   console: "true"
   flow-collector: "true"
+

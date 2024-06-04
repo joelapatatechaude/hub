@@ -7,3 +7,4 @@ data:
   name: aws-cloud
   console: "true"
   flow-collector: "true"
+  ingress: "route"
