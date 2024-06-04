@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hub-banner
+  name: app-of-apps-banner
   namespace: openshift-gitops
   labels:
     type: bootstrap
@@ -13,7 +13,7 @@ spec:
   source:
     directory:
       jsonnet: {}
-      recurse: true
+      recurse: false
     path: cluster-go/bootstrap/banner
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
