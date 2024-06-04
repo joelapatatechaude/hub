@@ -5,3 +5,4 @@ metadata:
 data:
   name: bare-metal
   console: "true"
+  console-authentication: openshift
