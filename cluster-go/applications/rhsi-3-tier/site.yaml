@@ -4,3 +4,8 @@ metadata:
   name: skupper-site
 data:
   console-authentication: openshift
+  name: bare-metal
+  console: "true"
+  console-user: "admin"
+  console-password: "changeme"
+  flow-collector: "true"
