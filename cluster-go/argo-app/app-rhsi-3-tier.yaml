@@ -1,20 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rhsi-operator
+  name: rhsi-3-tier
   namespace: openshift-gitops
   labels:
-    type: operator
-    rhsi: core
+    type: demo
+    rhsi: demo
+    app: rhsi-3-tier
 spec:
   destination:
     name: hub
+    namespace: rhsi-3-tier
   project: hub
   source:
     directory:
       jsonnet: {}
       recurse: true
-    path: cluster-go/operators/RHSI
+    path: cluster-go/applications/rhsi-3-tier/
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
     syncOptions:
