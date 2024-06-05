@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: java-time-host-api
+  namespace: rhsi-3-tier
+  labels:
+    app: java-time-host-api
+    app.kubernetes.io/component: java-time-host-api
+    app.kubernetes.io/instance: java-time-host-api
+    app.kubernetes.io/name: java-time-host-api
+    app.openshift.io/runtime-version: latest
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: java-time-host-api
+    deployment: java-time-host-api
