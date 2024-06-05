@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rhsi-3-tier-siteBM
+  name: rhsi-3-tier-site-bm
   namespace: openshift-gitops
   labels:
     type: demo
