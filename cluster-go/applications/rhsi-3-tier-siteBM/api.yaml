@@ -5,7 +5,7 @@ metadata:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/route-disabled: 'false'
     deployment.kubernetes.io/revision: '1'
-  name: java-time-host-api
+  name: api
   namespace: rhsi-3-tier
   labels:
     app: java-time-host-api
