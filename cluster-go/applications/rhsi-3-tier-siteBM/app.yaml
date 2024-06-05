@@ -7,7 +7,6 @@ metadata:
     app.openshift.io/vcs-ref: ''
     app.openshift.io/vcs-uri: 'https://github.com/joelapatatechaude/javascript-time-host-api'
     deployment.kubernetes.io/revision: '1'
-  resourceVersion: '5261245'
   name: app
   namespace: rhsi-3-tier
   labels:
@@ -15,7 +14,7 @@ metadata:
     app.kubernetes.io/component: app
     app.kubernetes.io/instance: app
     app.kubernetes.io/name: app
-    app.openshift.io/runtime: nginx
+    app.openshift.io/runtime: javascript
 spec:
   replicas: 1
   selector:
