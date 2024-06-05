@@ -14,7 +14,7 @@ metadata:
     app.kubernetes.io/component: app
     app.kubernetes.io/instance: app
     app.kubernetes.io/name: app
-    app.openshift.io/runtime: javascript
+    app.openshift.io/runtime: nginx
 spec:
   replicas: 1
   selector:
