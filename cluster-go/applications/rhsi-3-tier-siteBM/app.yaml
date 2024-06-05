@@ -4,9 +4,9 @@ metadata:
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/route-disabled: 'false'
-    app.openshift.io/vcs-ref: ''
-    app.openshift.io/vcs-uri: 'https://github.com/joelapatatechaude/javascript-time-host-api'
     deployment.kubernetes.io/revision: '1'
+    app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"api"}]'
+
   name: app
   namespace: rhsi-3-tier
   labels:
