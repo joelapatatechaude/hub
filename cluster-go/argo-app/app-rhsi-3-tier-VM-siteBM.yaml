@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rhsi-3-tier-site-vm-bm
+  namespace: openshift-gitops
+  labels:
+    type: demo
+    rhsi: demo
+    app: rhsi-3-tier-vm
+spec:
+  destination:
+    name: hub
+    namespace: rhsi-3-tier-vm
+  project: hub
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/applications/rhsi-3-tier-vm-siteBM
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=true

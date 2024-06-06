@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rhsi-console-demo
+  namespace: openshift-gitops
+  labels:
+    type: demo
+    rhsi: demo
+    app: rhsi-console-demo
+spec:
+  destination:
+    name: hub
+  project: hub
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/applications/rhsi-console-demo
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=true
