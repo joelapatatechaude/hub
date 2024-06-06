@@ -99,13 +99,17 @@ spec:
               chpasswd: { expire: False }
               packages:
                 - postgresql-server
+                - podman
               runcmd:
                 - postgresql-setup --initdb --unit postgresql
                 - sleep 1
-                - sed -i 's/local   all             all                                     peer/local   all             all                                     trust/g' /var/lib/pgsql/data/pg_hba.conf
+                - echo "host all all all md5" >> /var/lib/pgsql/data/pg_hba.conf
                 - echo "listen_addresses = '*'" >> /var/lib/pgsql/data/postgresql.conf
                 - systemctl enable postgresql
                 - systemctl start postgresql
                 - sudo -u postgres createuser redhat
                 - sudo -u postgres createdb rhsi
+                - sudo -u postgres psql -c "alter user redhat with encrypted password 'IloveOpenShift4';"
+                - sudo -u postgres psql -c "grant all privileges on database rhsi to redhat ;"
+                - sudo -u postgres psql -d rhsi -c "GRANT ALL ON SCHEMA public TO redhat;"
           name: cloudinitdisk
