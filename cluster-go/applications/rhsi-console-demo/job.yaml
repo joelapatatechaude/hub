@@ -16,6 +16,6 @@ spec:
           args:
             - echo "sleep about 30 sec before";
               sleep 30;
-              echo "sleep a lot now"
-              sleep 99999
+              echo "sleep a lot now";
+              sleep 99999999;
       restartPolicy: Never
