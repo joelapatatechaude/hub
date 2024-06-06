@@ -2,7 +2,6 @@ apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   annotations:
-    kubemacpool.io/transaction-timestamp: '2024-06-06T05:45:40.40228475Z'
     vm.kubevirt.io/validations: |
       [
         {
