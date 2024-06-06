@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hammer
+  namespace: console-site-a
+spec:
+  selector: {}
+  template:
+    metadata:
+      name: hammer
+    spec:
+      containers:
+        - name: hammer
+          image: 'registry.redhat.io/rhel8/toolbox'
+          command: ["/bin/sh", "-c"]
+          args:
+            - echo "sleep about 30 sec before";
+              sleep 30;
+              echo "sleep a lot now"
+              sleep 99999
+      restartPolicy: Never

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: skupper-site
+  namespace: console-site-b
+data:
+  console-authentication: openshift
+  name: site-b
+  console: "true"
+  flow-collector: "true"
+  ingress: "route"

@@ -1,0 +1,24 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: api
+  namespace: console-site-a
+  labels:
+    app: java-time-host-api
+    app.kubernetes.io/component: java-time-host-api
+    app.kubernetes.io/instance: java-time-host-api
+    app.kubernetes.io/name: java-time-host-api
+    app.openshift.io/runtime-version: latest
+  annotations:
+    haproxy.router.openshift.io/balance: roundrobin
+    haproxy.router.openshift.io/disable_cookies: 'true'
+spec:
+  to:
+    kind: Service
+    name: java-time-host-api
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+  wildcardPolicy: None
