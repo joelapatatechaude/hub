@@ -14,8 +14,8 @@ spec:
           image: 'registry.redhat.io/rhel8/toolbox'
           command: ["/bin/sh", "-c"]
           args:
-            - echo "sleep about 30 sec before";
-              sleep 30;
-              echo "sleep a lot now";
+            - echo "sleep about 1 sec before";
+              sleep 1
+              while true; do curl --connect-timeout 1 java-time-host-api:8080/time; sleep 0."$((1 + $RANDOM % 9))"; done;
               sleep 99999999;
       restartPolicy: Never
