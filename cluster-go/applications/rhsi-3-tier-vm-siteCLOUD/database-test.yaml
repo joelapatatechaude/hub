@@ -1,0 +1,61 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: 'false'
+    deployment.kubernetes.io/revision: '1'
+  name: postgresql-test
+  namespace: rhsi-3-tier-vm
+  labels:
+    app: postgresql-test
+    app.kubernetes.io/component: postgresql-test
+    app.kubernetes.io/instance: postgresql-test
+    app.kubernetes.io/name: postgresql-test
+    app.openshift.io/runtime: postgresql-test
+    app.openshift.io/runtime-namespace: rhsi-3-tier-vm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgresql-test
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: postgresql-test
+        deployment: postgresql-test
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      containers:
+        - name: postgresql-test
+          image: registry.redhat.io/rhel9/postgresql-16:latest
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          env:
+            - name: POSTGRESQL_USER
+              value: fakeredhat
+            - name: POSTGRESQL_PASSWORD
+              value: fakeIloveOpenShift4
+            - name: POSTGRESQL_DATABASE
+              value: fakerhsi
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+      imagePullSecrets: []
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+  paused: false
