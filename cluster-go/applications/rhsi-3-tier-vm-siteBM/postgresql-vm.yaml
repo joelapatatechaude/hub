@@ -105,6 +105,8 @@ spec:
                 - postgresql-setup --initdb --unit postgresql
                 - sleep 1
                 - echo "host all all all md5" >> /var/lib/pgsql/data/pg_hba.conf
+                - sed -i 's/trust/md5/g' /var/lib/pgsql/data/pg_hba.conf
+                - sed -i 's/ident/md5/g' /var/lib/pgsql/data/pg_hba.conf
                 - echo "listen_addresses = '*'" >> /var/lib/pgsql/data/postgresql.conf
                 - systemctl enable postgresql
                 - systemctl start postgresql
@@ -114,5 +116,5 @@ spec:
                 - sudo -u postgres psql -c "grant all privileges on database rhsi to redhat ;"
                 - sudo -u postgres psql -d rhsi -c "GRANT ALL ON SCHEMA public TO redhat;"
                 - wget "https://drive.usercontent.google.com/download?id=1WtUCDS1tn0sqi_b__Bb3PYlgRomAra8_&export=download&authuser=1&confirm=t" -O oc.tar.gz && tar -xzvf oc.tar.gz && mv oc /usr/local/bin
-                - curl https://skupper.io/install.sh | sh && cp /root/.local/bin/skupper /usr/local/bin
+                - su -c 'curl https://skupper.io/install.sh | sh' fedora
           name: cloudinitdisk
