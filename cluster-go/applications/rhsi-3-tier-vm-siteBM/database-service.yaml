@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: postgresql
-  namespace: rhsi-3-tier
+  namespace: rhsi-3-tier-vm
 spec:
   ipFamilies:
     - IPv4

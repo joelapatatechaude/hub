@@ -2,7 +2,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: api
-  namespace: rhsi-3-tier
+  namespace: rhsi-3-tier-vm
   labels:
     app: java-time-host-api
     app.kubernetes.io/component: java-time-host-api

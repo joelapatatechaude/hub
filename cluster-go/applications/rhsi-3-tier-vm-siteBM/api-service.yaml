@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: java-time-host-api
-  namespace: rhsi-3-tier
+  namespace: rhsi-3-tier-vm
   labels:
     app: java-time-host-api
     app.kubernetes.io/component: java-time-host-api

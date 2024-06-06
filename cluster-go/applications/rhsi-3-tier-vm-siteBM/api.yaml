@@ -8,14 +8,14 @@ metadata:
     app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"postgresql"}]'
 
   name: api
-  namespace: rhsi-3-tier
+  namespace: rhsi-3-tier-vm
   labels:
     app: java-time-host-api
     app.kubernetes.io/component: java-time-host-api
     app.kubernetes.io/instance: java-time-host-api
     app.kubernetes.io/name: java-time-host-api
     app.openshift.io/runtime: java
-    app.openshift.io/runtime-namespace: rhsi-3-tier
+    app.openshift.io/runtime-namespace: rhsi-3-tier-vm
 spec:
   replicas: 3
   selector:

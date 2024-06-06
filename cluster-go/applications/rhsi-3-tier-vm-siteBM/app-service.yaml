@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: app
-  namespace: rhsi-3-tier
+  namespace: rhsi-3-tier-vm
   labels:
     app: app
     app.kubernetes.io/component: app
