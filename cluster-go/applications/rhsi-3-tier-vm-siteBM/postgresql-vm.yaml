@@ -113,6 +113,6 @@ spec:
                 - sudo -u postgres psql -c "alter user redhat with encrypted password 'IloveOpenShift4';"
                 - sudo -u postgres psql -c "grant all privileges on database rhsi to redhat ;"
                 - sudo -u postgres psql -d rhsi -c "GRANT ALL ON SCHEMA public TO redhat;"
-                - wget "https://drive.usercontent.google.com/download?id=1WtUCDS1tn0sqi_b__Bb3PYlgRomAra8_&export=download&authuser=1&confirm=t" -O oc.tar.gz && tar -xzvf oc.tar.gz && mv oc .local/bin
-                - curl https://skupper.io/install.sh | sh
+                - wget "https://drive.usercontent.google.com/download?id=1WtUCDS1tn0sqi_b__Bb3PYlgRomAra8_&export=download&authuser=1&confirm=t" -O oc.tar.gz && tar -xzvf oc.tar.gz && mv oc /usr/local/bin
+                - curl https://skupper.io/install.sh | sh && cp /root/.local/bin/skupper /usr/local/bin
           name: cloudinitdisk
