@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: http-server
+  namespace: openshift-gitops
+  labels:
+    type: bootstrap
+    http-server: core
+    app: many
+spec:
+  destination:
+    name: hub
+    namespace: http-server
+  project: hub
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/infrastructure/http-server
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=true
