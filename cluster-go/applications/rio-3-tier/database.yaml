@@ -36,11 +36,11 @@ spec:
               protocol: TCP
           env:
             - name: ACCEPT_EULA
-              value: Y
+              value: 'Y'
             - name: MSSQL_PID
-              value: Developer
+              value: 'Developer'
             - name: MSSQL_SA_PASSWORD
-              value: IloveOpenShift4
+              value: 'IloveOpenShift4'
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File

@@ -8,7 +8,7 @@ metadata:
     app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"api"}]'
 
   name: app
-  namespace: rhsi-3-tier
+  namespace: rio-3-tier
   labels:
     app: app
     app.kubernetes.io/component: app
