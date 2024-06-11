@@ -1,0 +1,25 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: files-tools
+  namespace: http-server
+  labels:
+    app: files-tools
+    app.kubernetes.io/component: files-tools
+    app.kubernetes.io/instance: files-tools
+    app.kubernetes.io/name: files-tools
+    app.openshift.io/runtime-version: latest
+    argocd.argoproj.io/instance: files-tools
+  annotations:
+    haproxy.router.openshift.io/balance: roundrobin
+    haproxy.router.openshift.io/disable_cookies: 'true'
+spec:
+  to:
+    kind: Service
+    name: files-tools
+    weight: 100
+  port:
+    targetPort: 8000-tcp
+  tls:
+    termination: edge
+  wildcardPolicy: None

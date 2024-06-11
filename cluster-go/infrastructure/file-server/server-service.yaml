@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: files-tools
+  namespace: http-server
+  labels:
+    app: files-tools
+    app.kubernetes.io/component: files-tools
+    app.kubernetes.io/instance: files-tools
+    app.kubernetes.io/name: files-tools
+    app.openshift.io/runtime-version: latest
+spec:
+  ports:
+    - name: 8000-tcp
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: files-tools
+    deployment: files-tools
