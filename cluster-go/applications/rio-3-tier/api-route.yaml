@@ -4,19 +4,20 @@ metadata:
   name: api
   namespace: rio-3-tier
   labels:
-    app: java-time-host-api
-    app.kubernetes.io/component: java-time-host-api
-    app.kubernetes.io/instance: java-time-host-api
-    app.kubernetes.io/name: java-time-host-api
+    app: dotnet-time-host-api
+    app.kubernetes.io/component: dotnet-time-host-api
+    app.kubernetes.io/instance: dotnet-time-host-api
+    app.kubernetes.io/name: dotnet-time-host-api
     app.openshift.io/runtime-version: latest
     argocd.argoproj.io/instance: rio-3-tier-site-bm
   annotations:
     haproxy.router.openshift.io/balance: roundrobin
     haproxy.router.openshift.io/disable_cookies: 'true'
 spec:
+  path: "/api/time"
   to:
     kind: Service
-    name: java-time-host-api
+    name: dotnet-time-host-api
     weight: 100
   port:
     targetPort: 8080-tcp
