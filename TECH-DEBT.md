@@ -27,3 +27,9 @@ hub project: currently public as I couldn't get the helm (workshop setup) to wor
 ServiceMesh: I need to selectively apply servicemeshcontrolplane first before being able to apply the whole argocd thing.
 
 GITLAB: Hard coded domain name (including hub) at this stage.
+
+RHACS: I created a link inco for OpenShift console, the acs link is hardcoded
+RHACS: need to manually create the bundle by clicking on the console on central, then apply the bundle with:
+oc apply -n stackrox-secured -f THEFILE
+
+
