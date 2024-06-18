@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: acs-central
+  name: acs-secured
   namespace: openshift-gitops
   labels:
     type: infrastructure
@@ -14,7 +14,7 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: cluster-go/infrastructure/rhacs-central
+    path: cluster-go/infrastructure/rhacs-secured
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
     syncOptions:
