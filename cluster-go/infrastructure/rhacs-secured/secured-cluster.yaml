@@ -2,7 +2,7 @@ apiVersion: platform.stackrox.io/v1alpha1
 kind: SecuredCluster
 metadata:
   name: cluster-services
-  namespace: stackrox-service
+  namespace: stackrox-secured
 spec:
   auditLogs:
     collection: Auto
