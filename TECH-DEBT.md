@@ -30,6 +30,6 @@ GITLAB: Hard coded domain name (including hub) at this stage.
 
 RHACS: I created a link inco for OpenShift console, the acs link is hardcoded
 RHACS: need to manually create the bundle by clicking on the console on central, then apply the bundle with:
-oc apply -n stackrox-secured -f THEFILE
+oc apply -n stackrox-secured -f ~/Downloads/hub-Operator-secrets-cluster-init-bundle.yaml
 
 
