@@ -8,8 +8,8 @@ metadata:
     rhacm: core
 spec:
   destination:
-    name: hub
-  project: hub
+    name: bm
+  project: bm
   source:
     directory:
       jsonnet: {}

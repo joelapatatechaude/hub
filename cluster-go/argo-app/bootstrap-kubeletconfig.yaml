@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hub-kubeletconfig
+  name: bm-kubeletconfig
   namespace: openshift-gitops
   labels:
     type: bootstrap
 spec:
   destination:
-    name: hub
-  project: hub
+    name: bm
+  project: bm
   source:
     directory:
       jsonnet: {}

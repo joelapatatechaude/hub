@@ -9,9 +9,9 @@ metadata:
     app: many
 spec:
   destination:
-    name: hub
+    name: bm
     namespace: http-server
-  project: hub
+  project: bm
   source:
     directory:
       jsonnet: {}
