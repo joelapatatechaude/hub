@@ -1,5 +1,5 @@
 MYDIR=cluster-local
-CLUSTER_NAME=hub
-ARGO_CLUSTER_NAME=hub
+CLUSTER_NAME=bm
+ARGO_CLUSTER_NAME=bm
 ARGO_CONFIG=~/.aws/argo-config-local
 HUB_KUBECONFIG=~/.aws/hub-kubeconfig-local
