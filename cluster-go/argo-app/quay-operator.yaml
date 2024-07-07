@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quay-operator
+  namespace: openshift-gitops
+  labels:
+    type: operator
+    quay: core
+spec:
+  destination:
+    name: bm
+  project: bm
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/operators/Quay
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+      - Prune=true
+      - CreateNamespace=true
