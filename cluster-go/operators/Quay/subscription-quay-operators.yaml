@@ -11,9 +11,6 @@ metadata:
 spec:
   channel: stable-3.11
   installPlanApproval: Automatic
-  name: quay-operators
+  name: quay-operator
   source: redhat-operators
   sourceNamespace: openshift-marketplace
-
-
-
