@@ -9,9 +9,9 @@ metadata:
     app: rhsi-3-tier-vm
 spec:
   destination:
-    name: bm
+    name: hub
     namespace: rhsi-3-tier-vm
-  project: bm
+  project: hub
   source:
     directory:
       jsonnet: {}

@@ -9,9 +9,9 @@ metadata:
     app: rio-3-tier
 spec:
   destination:
-    name: bm
+    name: hub
     namespace: rio-3-tier
-  project: bm
+  project: hub
   source:
     directory:
       jsonnet: {}

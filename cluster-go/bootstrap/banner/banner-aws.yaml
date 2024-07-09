@@ -7,9 +7,9 @@ metadata:
     type: bootstrap
 spec:
   destination:
-    name: bm
+    name: hub
     namespace: default
-  project: bm
+  project: hub
   source:
     directory:
       jsonnet: {}

@@ -7,8 +7,8 @@ metadata:
     type: operator
 spec:
   destination:
-    name: bm
-  project: bm
+    name: hub
+  project: hub
   source:
     directory:
       jsonnet: {}

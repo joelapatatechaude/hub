@@ -8,8 +8,8 @@ metadata:
     devspaces: dependency
 spec:
   destination:
-    name: bm
-  project: bm
+    name: hub
+  project: hub
   source:
     directory:
       jsonnet: {}
