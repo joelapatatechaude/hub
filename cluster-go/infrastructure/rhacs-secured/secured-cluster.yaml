@@ -4,6 +4,10 @@ metadata:
   name: cluster-services
   namespace: stackrox-secured
 spec:
+  sensor:
+    resources:
+      requests:
+        cpu: 10m
   auditLogs:
     collection: Auto
   admissionControl:
@@ -15,6 +19,9 @@ spec:
     listenOnEvents: true
   scanner:
     analyzer:
+      resources:
+        requests:
+          cpu: 10m
       scaling:
         autoScaling: Enabled
         maxReplicas: 3
