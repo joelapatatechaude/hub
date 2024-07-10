@@ -12,6 +12,7 @@ spec:
       persistence:
         persistentVolumeClaim:
           claimName: central-db
+          size: 20Gi
       resources:
         limits:
           cpu: 1000m
