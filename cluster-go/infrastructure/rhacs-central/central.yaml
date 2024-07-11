@@ -18,6 +18,7 @@ spec:
           cpu: 1000m
         requests:
           cpu: 10m
+          memory: 1Gi
     exposure:
       loadBalancer:
         enabled: false
@@ -36,6 +37,7 @@ spec:
         cpu: 1000m
       requests:
         cpu: 10m
+        memory: 1Gi
     telemetry:
       enabled: true
   egress:
@@ -50,6 +52,7 @@ spec:
           cpu: 1000m
         requests:
           cpu: 10m
+          memory: 1Gi
       scaling:
         autoScaling: Enabled
         maxReplicas: 2
