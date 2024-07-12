@@ -1,11 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager-operator
+  name: certificates
   namespace: openshift-gitops
   labels:
-    type: operator
-    gitlab: dependency
+    type: infrastructure
     certificates: core
 spec:
   destination:
@@ -15,7 +14,7 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: cluster-go/operators/CertManager/
+    path: cluster-go/infrastructure/Certificates
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
     syncOptions:
