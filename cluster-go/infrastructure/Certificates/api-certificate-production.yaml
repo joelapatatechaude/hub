@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: api-certificate-production
+  namespace: openshift-config
+spec:
+  secretName: ingress-certificate-production
+  issuerRef:
+    name: letsencrypt-cloudflare-production
+    kind: ClusterIssuer
+  commonName: "api.hub.cszevaco.com"
+  dnsNames:
+    - "api.hub.cszevaco.com"

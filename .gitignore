@@ -6,3 +6,5 @@ STUFF/
 github-oauth-secret.yaml*
 git-projects/
 .github-oauth-secret-sealed*
+cloudflare-secret.yaml*
+.cloudflare-secret-sealed*
