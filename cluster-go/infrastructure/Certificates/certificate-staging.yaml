@@ -1,12 +1,12 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: wildcard-apps-certificate
+  name: ingress-certificate-staging
   namespace: openshift-ingress
 spec:
-  secretName: apps-wildcard-tls
+  secretName: ingress-certificate-staging
   issuerRef:
-    name: letsencrypt-cloudflare
+    name: letsencrypt-cloudflare-staging
     kind: ClusterIssuer
   commonName: "*.apps.hub.cszevaco.com"
   dnsNames:

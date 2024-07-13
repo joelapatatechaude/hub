@@ -10,3 +10,13 @@ KUBECONFIG=../../../../cluster-local-spoke01/auth/kubeconfig kubeseal -f github-
 
 SO THAT'S A BIT OF A PROBLEM I HAVE TO SWITCH FOR DIFFERENT CLUSTER???
 ALSO, check th eTECH-DEBT.md document
+
+
+REMEMBER, TECH DEBT with the dns:53 being blocked by the firewall. Need to patch the cert manager cluster with:
+
+spec:
+  controllerConfig:
+    overrideArgs:
+      - '--dns01-recursive-nameservers=10.64.135.1:53,10.68.5.26:53'
+      - '--dns01-recursive-nameservers-only=true'
+

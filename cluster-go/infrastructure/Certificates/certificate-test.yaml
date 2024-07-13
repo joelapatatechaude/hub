@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: certificate-test
+  namespace: cert-manager-operator
+spec:
+  secretName: certificate-test
+  issuerRef:
+    name: letsencrypt-cloudflare-staging
+    kind: ClusterIssuer
+  dnsNames:
+    - 'test.cszevaco.com'
+  usages:
+    - digital signature
+    - key encipherment
+    - server auth
