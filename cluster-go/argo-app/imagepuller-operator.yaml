@@ -8,7 +8,7 @@ metadata:
     devspaces: dependency
 spec:
   destination:
-    name: hub
+    name: in-cluster
   project: hub
   source:
     directory:

@@ -9,7 +9,7 @@ metadata:
     app: bookinfo
 spec:
   destination:
-    name: hub
+    name: in-cluster
     namespace: bookinfo
   project: hub
   source:

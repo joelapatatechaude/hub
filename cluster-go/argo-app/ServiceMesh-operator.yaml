@@ -8,7 +8,7 @@ metadata:
     servicemesh: core
 spec:
   destination:
-    name: hub
+    name: in-cluster
   project: hub
   source:
     directory:

@@ -8,7 +8,7 @@ metadata:
     service: EdgeDemo
 spec:
   destination:
-    name: hub
+    name: in-cluster
   project: hub
   source:
     directory:

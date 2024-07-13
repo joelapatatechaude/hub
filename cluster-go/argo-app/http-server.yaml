@@ -9,7 +9,7 @@ metadata:
     app: many
 spec:
   destination:
-    name: hub
+    name: in-cluster
     namespace: http-server
   project: hub
   source:

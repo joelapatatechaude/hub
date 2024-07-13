@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hub-users
+  name: in-cluster-users
   namespace: openshift-gitops
   labels:
     type: bootstrap
 spec:
   destination:
-    name: hub
+    name: in-cluster
     namespace: default
   project: hub
   source:

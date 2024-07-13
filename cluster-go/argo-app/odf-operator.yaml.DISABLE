@@ -1,11 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: acm-mch
+  name: odf-operator
   namespace: openshift-gitops
   labels:
-    type: infrastructure
-    rhacm: core
+    type: operator
+    odf: core
+    localstorage: core
 spec:
   destination:
     name: in-cluster
@@ -14,9 +15,9 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: cluster-go/infrastructure/rhacm
+    path: cluster-go/operators/ODF
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
     syncOptions:
-    - Prune=true
-    - CreateNamespace=true
+      - Prune=true
+      - CreateNamespace=true

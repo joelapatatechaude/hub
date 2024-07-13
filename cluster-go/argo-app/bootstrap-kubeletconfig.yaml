@@ -7,7 +7,7 @@ metadata:
     type: bootstrap
 spec:
   destination:
-    name: hub
+    name: in-cluster
   project: hub
   source:
     directory:

@@ -8,7 +8,7 @@ metadata:
     app: pacman
 spec:
   destination:
-    name: hub
+    name: in-cluster
     namespace: pacman-prod
   project: hub
   source:

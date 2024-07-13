@@ -9,7 +9,7 @@ metadata:
     app: rhsi-3-tier-vm
 spec:
   destination:
-    name: hub
+    name: in-cluster
     namespace: rhsi-3-tier-vm
   project: hub
   source:
