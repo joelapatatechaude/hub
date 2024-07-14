@@ -20,3 +20,8 @@ spec:
       - '--dns01-recursive-nameservers=10.64.135.1:53,10.68.5.26:53'
       - '--dns01-recursive-nameservers-only=true'
 
+Patch ingress controller with:
+oc patch ingresscontroller.operator default --type=merge -p '{"spec":{"defaultCertificate":{"name":"ingress-certificate-production"}}}' -n openshift-ingress-operator
+
+Patch API with:
+oc patch apiserver cluster --type=merge -p '{"spec":{"servingCerts": {"namedCertificates": [{"names": ["api.hub.cszevaco.com"], "servingCertificate": {"name": "ingress-certificate-production"}}]}}}'
