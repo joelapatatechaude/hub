@@ -8,6 +8,9 @@ spec:
     resources:
       requests:
         cpu: 10m
+        memory: 1Gi
+      limits:
+        memory: 2Gi
   auditLogs:
     collection: Auto
   admissionControl:
@@ -17,14 +20,31 @@ spec:
     listenOnCreates: true
     timeoutSeconds: 20
     listenOnEvents: true
+    replicas: 1
+    resources:
+      requests:
+        cpu: 10m
+        memory: 300Mi
+      limits:
+        memory: 1Gi
   scanner:
+    db:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 302Mi
+        limits:
+          memory: 1Gi
     analyzer:
       resources:
         requests:
           cpu: 10m
+          memory: 301Mi
+        limits:
+          memory: 1Gi
       scaling:
         autoScaling: Enabled
-        maxReplicas: 3
+        maxReplicas: 1
         minReplicas: 1
         replicas: 1
     scannerComponent: AutoSense
@@ -32,6 +52,12 @@ spec:
     collector:
       collection: EBPF
       imageFlavor: Regular
+      resources:
+        requests:
+          cpu: 10m
+          memory: 320Mi
+        limits:
+          memory: 750Mi
     taintToleration: TolerateTaints
   clusterName: ocp-hub
   centralEndpoint: 'central-stackrox.apps.hub.cszevaco.com:443'
