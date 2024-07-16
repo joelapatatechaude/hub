@@ -32,7 +32,7 @@ spec:
       template: <username>-devspaces
     secondsOfInactivityBeforeIdling: 9000
     storage:
-      pvcStrategy: per-user
+      pvcStrategy: per-workspace
   gitServices:
     github:
       - endpoint: "https://github.com"
