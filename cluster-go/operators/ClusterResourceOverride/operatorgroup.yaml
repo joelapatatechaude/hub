@@ -3,9 +3,9 @@ kind: OperatorGroup
 metadata:
   annotations:
     olm.providedAPIs: ClusterResourceOverride.v1.operator.autoscaling.openshift.io
-  name: overrides-xyz
-  namespace: overrides
+  name: override-xyz
+  namespace: override
 spec:
   targetNamespaces:
-    - overrides
+    - override
   upgradeStrategy: Default
