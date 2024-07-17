@@ -1,7 +1,7 @@
 apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
-  label:
+  labels:
     clusterresourceoverrides.admission.autoscaling.openshift.io/enabled: 'true'
   name: open-cluster-management
   annotations:
