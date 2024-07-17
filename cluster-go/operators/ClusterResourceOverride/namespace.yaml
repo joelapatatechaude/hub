@@ -1,0 +1,10 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  name: override
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: '-10'
+spec:
+  finalizers:
+    - kubernetes
