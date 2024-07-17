@@ -1,4 +1,4 @@
-apiVersion: platform.stackrox.io/v1alpha1
+﻿apiVersion: platform.stackrox.io/v1alpha1
 kind: Central
 metadata:
   finalizers:
@@ -16,8 +16,10 @@ spec:
       resources:
         limits:
           cpu: 1000m
+          memory: 2Gi
         requests:
           cpu: 10m
+          memory: 1Gi
     exposure:
       loadBalancer:
         enabled: false
@@ -34,8 +36,10 @@ spec:
     resources:
       limits:
         cpu: 1000m
+        memory: 2Gi
       requests:
         cpu: 10m
+        memory: 1Gi
     telemetry:
       enabled: true
   egress:
@@ -48,11 +52,13 @@ spec:
       resources:
         limits:
           cpu: 1000m
+          memory: 2Gi
         requests:
           cpu: 10m
+          memory: 1Gi
       scaling:
         autoScaling: Enabled
-        maxReplicas: 2
+        maxReplicas: 1
         minReplicas: 1
         replicas: 1
     monitoring:
@@ -61,6 +67,8 @@ spec:
       resources:
         limits:
           cpu: 1000m
+          limits: 3Gi
         requests:
           cpu: 10m
+          memory: 2.5Gi
     scannerComponent: Enabled
