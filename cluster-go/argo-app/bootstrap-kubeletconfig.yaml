@@ -4,7 +4,7 @@ metadata:
   name: hub-kubeletconfig
   namespace: openshift-gitops
   labels:
-    type: bootstrap
+    type: infrastructure
 spec:
   destination:
     name: in-cluster
@@ -18,4 +18,4 @@ spec:
   syncPolicy:
     automated: {}
     syncOptions:
-    - Prune=true
+      - Prune=true

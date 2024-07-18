@@ -4,7 +4,7 @@ metadata:
   name: http-server
   namespace: openshift-gitops
   labels:
-    type: bootstrap
+    bootstrap: bootstrap
     http-server: core
     app: many
 spec:
@@ -20,5 +20,5 @@ spec:
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
     syncOptions:
-    - Prune=true
-    - CreateNamespace=true
+      - Prune=true
+      - CreateNamespace=true

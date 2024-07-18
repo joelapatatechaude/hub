@@ -4,7 +4,7 @@ metadata:
   name: app-of-apps-banner
   namespace: openshift-gitops
   labels:
-    type: bootstrap
+    bootstrap: bootstrap
 spec:
   destination:
     name: in-cluster
