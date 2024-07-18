@@ -24,9 +24,9 @@ spec:
     resources:
       requests:
         cpu: 10m
-        memory: 300Mi
+        memory: 100Mi
       limits:
-        memory: 1Gi
+        memory: 500Mi
   scanner:
     db:
       resources:
@@ -34,7 +34,7 @@ spec:
           cpu: 10m
           memory: 302Mi
         limits:
-          memory: 1Gi
+          memory: 512Mi
     analyzer:
       resources:
         requests:
@@ -55,9 +55,9 @@ spec:
       resources:
         requests:
           cpu: 10m
-          memory: 320Mi
+          memory: 115Mi
         limits:
-          memory: 750Mi
+          memory: 340Mi
     taintToleration: TolerateTaints
   clusterName: ocp-hub
   centralEndpoint: 'central-stackrox.apps.hub.cszevaco.com:443'
