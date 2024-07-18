@@ -4,7 +4,7 @@ metadata:
   name: banner-hub
   namespace: openshift-gitops
   labels:
-    type: bootstrap
+    bootstrap: bootstrap
 spec:
   destination:
     name: in-cluster
