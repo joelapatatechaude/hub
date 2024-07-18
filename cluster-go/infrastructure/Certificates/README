@@ -1,16 +1,4 @@
-KUBECONFIG=../../../cluster-local/auth/kubeconfig kubeseal -f cloudflare-secret.yaml -w cloudflare-secret-sealed.yaml
-
-OR
-
-KUBECONFIG=../../../cluster/auth/kubeconfig kubeseal -f cloudflare-secret.yaml -w cloudflare-secret-sealed.yaml
-
-OR
-
-KUBECONFIG=../../../../cluster-local-spoke01/auth/kubeconfig kubeseal -f github-oauth-secret.yaml -w github-oauth-secret-sealed.yaml
-
-SO THAT'S A BIT OF A PROBLEM I HAVE TO SWITCH FOR DIFFERENT CLUSTER???
-ALSO, check th eTECH-DEBT.md document
-
+REMEMBER I NOW USE akeylesse with teh external secret operator
 
 REMEMBER, TECH DEBT with the dns:53 being blocked by the firewall. Need to patch the cert manager cluster with:
 

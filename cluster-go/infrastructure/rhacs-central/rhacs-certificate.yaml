@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: rhacs-cert
+  namespace: stackrox
+spec:
+  secretName: central-default-tls-cert
+  issuerRef:
+    name: letsencrypt-cloudflare-production
+    kind: ClusterIssuer
+  commonName: "central-stackrox.apps.hub.cszevaco.com"
+  dnsNames:
+    - "central-stackrox.apps.hub.cszevaco.com"
