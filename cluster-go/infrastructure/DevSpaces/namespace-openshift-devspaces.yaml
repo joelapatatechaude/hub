@@ -3,8 +3,9 @@ kind: Namespace
 metadata:
   labels:
     clusterresourceoverrides.admission.autoscaling.openshift.io/enabled: 'true'
+    github-oauth-hub-cszevaco-joe-secret: yes-please
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: '0'
+    argocd.argoproj.io/sync-wave: '-10'
   name: openshift-devspaces
 
