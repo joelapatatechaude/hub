@@ -1,0 +1,12 @@
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: exercise05-user{{ printf "%02d" (add $index 1) }}
+  labels:
+    musthavenodeselector: "true"
+{{- end }}
+{{- end }}

@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: terminator
+  namespace: exercise06-admin-terminator
+spec:
+  selector: {}
+  template:
+    metadata:
+      name: terminator
+    spec:
+      serviceAccountName: terminator
+      containers:
+        - name: terminator
+          image: 'registry.redhat.io/openshift4/ose-cli:v4.15'
+          command: ["/bin/sh", "-c"]
+          args:
+            - echo "sleep about 30 sec before deleting namespaces";
+              sleep 30;
+              LIST=$(oc get project | grep '^exercise06-user' | awk '{print $1}');
+              echo "List of project to delete";
+              echo "$LIST";
+              for i in $LIST; do oc delete --wait=false project $i; done;
+      restartPolicy: Never

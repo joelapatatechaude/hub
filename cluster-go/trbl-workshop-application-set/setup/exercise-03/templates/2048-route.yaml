@@ -1,0 +1,20 @@
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: puzzle2048
+  namespace: exercise03-user{{ printf "%02d" (add $index 1) }}
+  labels: {}
+spec:
+  to:
+    kind: Service
+    name: puzzle2048
+  tls: {}
+  port:
+    targetPort: 8080
+
+{{- end }}
+{{- end }}

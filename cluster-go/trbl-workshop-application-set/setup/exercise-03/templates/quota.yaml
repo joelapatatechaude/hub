@@ -1,0 +1,19 @@
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
+---
+
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-resources
+  namespace: exercise03-user{{ printf "%02d" (add $index 1) }}
+spec:
+  hard:
+    requests.memory: 15Mi
+    limits.memory: 30Mi
+    requests.cpu: 20m
+    limits.cpu: 30m
+
+{{- end }}
+{{- end }}

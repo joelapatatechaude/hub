@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nsac-service
+  namespace: admission-controller-exercise05
+  annotations:
+    service.beta.openshift.io/serving-cert-secret-name: nsac-tls
+spec:
+  selector:
+    app: node-selector-admission-controller
+  ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 8443
+

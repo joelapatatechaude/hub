@@ -1,0 +1,19 @@
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordle
+  namespace: exercise04-user{{ printf "%02d" (add $index 1) }}
+spec:
+  selector:
+    app: poodle
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 4000
+{{- end }}
+{{- end }}

@@ -1,0 +1,30 @@
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tictactoe
+  namespace: exercise06-user{{ printf "%02d" (add $index 1) }}
+  labels:
+    app: tictactoe
+  finalizers:
+    - kubernetes.io/this-finalizer-doesnt-exist
+spec:
+  containers:
+  - name: tictactoe
+    image: quay.io/rh_ee_cschmitz/tictactoe:latest
+    imagePullPolicy: Always
+    volumeMounts:
+      - mountPath: /data
+        name: tictactoe-data
+    ports:
+      - containerPort: 3000
+        protocol: TCP
+  volumes:
+    - name: tictactoe-data
+      persistentVolumeClaim:
+        claimName: tictactoe-vol
+{{- end }}
+{{- end }}

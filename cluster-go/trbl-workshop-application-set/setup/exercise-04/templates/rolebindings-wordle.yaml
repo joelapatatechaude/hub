@@ -1,0 +1,20 @@
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
+---
+
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: exercise04-user{{ printf "%02d" (add $index 1) }}-service-wxyz
+  namespace: exercise04-user{{ printf "%02d" (add $index 1) }}
+subjects:
+  - kind: User
+    apiGroup: rbac.authorization.k8s.io
+    name:  user{{ printf "%02d" (add $index 1) }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: wordle-role
+{{- end }}
+{{- end }}

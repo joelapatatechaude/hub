@@ -1,0 +1,22 @@
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
+---
+
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: exercise06-user{{ printf "%02d" (add $index 1) }}-admin-wxyz
+  namespace: exercise06-user{{ printf "%02d" (add $index 1) }}
+  finalizers:
+    - kubernetes.io/cleanup-me-last-or-you-will-be-locked-out
+subjects:
+  - kind: User
+    apiGroup: rbac.authorization.k8s.io
+    name:  user{{ printf "%02d" (add $index 1) }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+{{- end }}
+{{- end }}

@@ -1,0 +1,55 @@
+{{- if .Values.userCount | int }}
+{{- $userCount := .Values.userCount | int }}
+{{- range $index := until $userCount }}
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: 'false'
+  name: tetris
+  namespace: exercise05-user{{ printf "%02d" (add $index 1) }}
+  labels:
+    app: tetris
+    app.kubernetes.io/component: tetris
+    app.kubernetes.io/instance: tetris
+    app.kubernetes.io/name: tetris
+    app.openshift.io/runtime: react
+    app.openshift.io/runtime-namespace: exercise05-user{{ printf "%02d" (add $index 1) }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tetris
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: tetris
+        deployment: tetris
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      nodeSelector:
+        run.on.node: that-have-this
+      containers:
+        - name: tetris
+          image: 'quay.io/rh_ee_cschmitz/tetris:latest'
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+{{- end }}
+{{- end }}

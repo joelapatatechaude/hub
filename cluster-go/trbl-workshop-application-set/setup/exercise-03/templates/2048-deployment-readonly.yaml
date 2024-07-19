@@ -1,0 +1,52 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: 'false'
+  name: puzzle2048
+  namespace: exercise03-readonly
+  labels:
+    app: puzzle2048
+    app.kubernetes.io/component: puzzle2048
+    app.kubernetes.io/instance: puzzle2048
+    app.kubernetes.io/name: puzzle2048
+    app.openshift.io/runtime: nginx
+    app.openshift.io/runtime-namespace: exercise03-readonly
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: puzzle2048
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: puzzle2048
+        deployment: puzzle2048
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      containers:
+        - name: puzzle2048
+          image: 'quay.io/rh_ee_cschmitz/puzzle2048:latest'
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+
