@@ -7,6 +7,10 @@ spec:
   chart:
     values:
       gitlab:
+        registry:
+          hpa:
+            minReplicas: 1
+            maxReplicas: 1
         gitlab-shell:
           minReplicas: 1
           maxReplicas: 1
@@ -16,7 +20,6 @@ spec:
         webservice:
           minReplicas: 1
           maxReplicas: 1
-          replicaCount: "1"
           serviceAccount:
             name: gitlab-app-nonroot
           resources:
@@ -28,9 +31,6 @@ spec:
       prometheus:
         install: false
       global:
-        hpa:
-          minReplicas: 1
-          maxReplicas: 1
         hosts:
           domain: apps.{{ .Values.clustername }}.{{ .Values.clusterdomain }}
         ingress:
