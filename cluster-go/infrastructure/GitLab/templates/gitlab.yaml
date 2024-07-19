@@ -10,6 +10,10 @@ spec:
         webservice:
           serviceAccount:
             name: gitlab-app-nonroot
+          resources:
+            requests:
+              memory: 1.25G
+          workerProcesses: 1
       certmanager:
         install: false
       prometheus:
