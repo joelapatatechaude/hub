@@ -22,6 +22,9 @@ spec:
       prometheus:
         install: false
       global:
+        hpa:
+          minReplicas: 1
+          maxReplicas: 1
         hosts:
           domain: apps.{{ .Values.clustername }}.{{ .Values.clusterdomain }}
         ingress:
