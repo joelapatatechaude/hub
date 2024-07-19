@@ -1,0 +1,8 @@
+remember to removed that once
+gitlab fixes this issue: https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/issues/1709
+  chart:
+    values:
+      gitlab:
+        webservice:
+          serviceAccount:
+            name: gitlab-app-nonroot

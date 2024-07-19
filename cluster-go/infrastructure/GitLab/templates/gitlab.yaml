@@ -8,12 +8,13 @@ spec:
     values:
       gitlab:
         webservice:
+          replicaCount: 1
           serviceAccount:
             name: gitlab-app-nonroot
           resources:
             requests:
-              memory: 1.25G
-          workerProcesses: 1
+              memory: 2.5G
+          workerProcesses: 2
       certmanager:
         install: false
       prometheus:
