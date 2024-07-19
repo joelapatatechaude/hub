@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt-cloudflare-production
     kind: ClusterIssuer
-  commonName: "central-stackrox.apps.hub.cszevaco.com"
+  commonName: 'central-stackrox.apps.{{ .Values.clustername }}.{{ .Values.clusterdomain }}'
   dnsNames:
-    - "central-stackrox.apps.hub.cszevaco.com"
+    - 'central-stackrox.apps.{{ .Values.clustername }}.{{ .Values.clusterdomain }}'

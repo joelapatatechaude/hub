@@ -3,7 +3,7 @@ kind: ConsoleLink
 metadata:
   name: application-rhacs
 spec:
-  href: 'https://central-stackrox.apps.hub.cszevaco.com'
+  href: 'https://central-stackrox.apps.{{ .Values.clustername }}.{{ .Values.clusterdomain }}'
   location: ApplicationMenu
   text: Advanced Cluster Security
   applicationMenu:
