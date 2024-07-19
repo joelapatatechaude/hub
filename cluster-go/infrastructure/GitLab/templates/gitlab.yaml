@@ -7,6 +7,9 @@ spec:
   chart:
     values:
       gitlab:
+        sidekiq:
+          minReplicas: 1
+          maxReplicas: 1
         registry:
           hpa:
             minReplicas: 1
