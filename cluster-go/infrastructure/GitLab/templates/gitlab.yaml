@@ -12,7 +12,7 @@ spec:
         install: false
       global:
         hosts:
-          domain: apps.{{ .Values.clustername }}{{ .Values.clusterdomaine }}
+          domain: apps.{{ .Values.clustername }}.{{ .Values.clusterdomain }}
         ingress:
           annotations:
             route.openshift.io/termination: edge
