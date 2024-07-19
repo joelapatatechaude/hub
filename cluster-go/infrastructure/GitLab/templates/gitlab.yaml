@@ -8,7 +8,9 @@ spec:
     values:
       gitlab:
         webservice:
-          replicaCount: 1
+          replicaCount: "1"
+          replicasCount: "1"
+          replicas: "1"
           serviceAccount:
             name: gitlab-app-nonroot
           resources:
