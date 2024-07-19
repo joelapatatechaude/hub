@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rhacs-secured
+  namespace: openshift-gitops
+  labels:
+    type: infrastructure
+    rhacs: core
+spec:
+  destination:
+    name: in-cluster
+  project: hub
+  syncPolicy:
+    syncOptions:
+      - Prune=true
+      - CreateNamespace=true
+  source:
+    path: cluster-go/infrastructure/rhacs-secured
+    repoURL: https://github.com/joelapatatechaude/hub/
+    targetRevision: main
+    helm:
+      parameters:
+        - name: "clustername"
+          value: "hub"
+        - name: "clusterdomain"
+          value: "cszevaco.com"
