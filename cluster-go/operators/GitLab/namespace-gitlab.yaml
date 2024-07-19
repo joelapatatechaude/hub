@@ -2,6 +2,8 @@ apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
   name: gitlab-system
+  labels:
+    clusterresourceoverrides.admission.autoscaling.openshift.io/enabled: 'true'
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: '0'
+    argocd.argoproj.io/sync-wave: '-10'
