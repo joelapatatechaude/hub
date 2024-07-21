@@ -57,3 +57,9 @@ hard coded commonName / dnsNames.
 
 
 
+To save CPU spikes due to marketplace in the openshift-marketplace namespace, I ran
+
+oc patch OperatorHub cluster --type json \
+    -p '[{"op": "add", "path": "/spec/disableAllDefaultSources", "value": true}]'
+
+Need to re-enable to get latest info obviously
