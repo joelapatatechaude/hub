@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mutate-cpu
+  namespace: openshift-gitops
+  labels:
+    type: infrastructure
+    bootstrap: bootstrap
+spec:
+  destination:
+    name: in-cluster
+  project: hub
+  source:
+    path: cluster-go/bootstrap/mutate-cpu
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - Prune=true
+      - CreateNamespace=true
