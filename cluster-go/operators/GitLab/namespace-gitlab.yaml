@@ -3,6 +3,7 @@ kind: Project
 metadata:
   name: gitlab-system
   labels:
+    mutate-cpu: 'true'
     clusterresourceoverrides.admission.autoscaling.openshift.io/enabled: 'true'
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true

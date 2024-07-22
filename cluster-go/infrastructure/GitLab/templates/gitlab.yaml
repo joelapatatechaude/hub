@@ -3,6 +3,8 @@ kind: GitLab
 metadata:
   name: gitlab
   namespace: gitlab-system
+  labels:
+    mutate-cpu: 'true'
 spec:
   chart:
     values:
@@ -23,8 +25,6 @@ spec:
         webservice:
           minReplicas: 1
           maxReplicas: 1
-          serviceAccount:
-            name: gitlab-app-nonroot
           resources:
             requests:
               memory: 2.5G
