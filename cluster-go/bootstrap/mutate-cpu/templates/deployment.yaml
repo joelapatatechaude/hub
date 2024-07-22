@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mutate-cpu
+  namespace: admission-webhook
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mutate-cpu
+  template:
+    metadata:
+      labels:
+        app: mutate-cpu
+    spec:
+      volumes:
+        - name: my-tls
+          secret:
+            secretName: my-tls
+      containers:
+        - name: mutate-cpu
+          resources:
+            requests:
+              cpu: 0.001
+          image: quay.io/rh_ee_cschmitz/cpu-request-override:blogpost
+          volumeMounts:
+            - mountPath: "/mount"
+              name: my-tls
+              readOnly: true
+          env:
+            - name: TLS_CERT_FILE
+              value: "/mount/tls.crt"
+            - name: TLS_KEY_FILE
+              value: "/mount/tls.key"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
