@@ -3,7 +3,7 @@ kind: Project
 metadata:
   name: rhacs-operator
   labels:
-    clusterresourceoverrides.admission.autoscaling.openshift.io/enabled: 'true'
+    mutate-cpu: 'true'
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: '-10'

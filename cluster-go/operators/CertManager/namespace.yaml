@@ -3,7 +3,7 @@ kind: Project
 metadata:
   name: cert-manager-operator
   labels:
-    clusterresourceoverrides.admission.autoscaling.openshift.io/enabled: 'true'
+    mutate-cpu: 'true'
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: '0'
