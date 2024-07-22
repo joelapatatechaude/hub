@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: test
+  namespace: openshift-gitops
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+      - cluster: engineering-dev
+        url: https://1.2.3.4
+        usercount: "5"
+  template:
+    metadata:
+      name: '{{.cluster}}-test'
+      namespace: openshift-gitops
+    spec:
+      destination:
+        name: in-cluster
+      project: hub
+      source:
+        path: cluster-go/trbl-workshop/setup/exercise-01
+        repoURL: https://github.com/joelapatatechaude/hub/
+        targetRevision: main
+        helm:
+          parameters:
+            - name: "userCount"
+              value: '{{.usercount}}'

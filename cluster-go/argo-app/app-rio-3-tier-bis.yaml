@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rio-3-tier-bis
+  namespace: openshift-gitops
+  labels:
+    type: demo
+    rio: demo
+    app: rio-3-tier
+spec:
+  destination:
+    name: in-cluster
+    namespace: rio-3-tier-bis
+  project: hub
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/applications/rio-3-tier-bis
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=true

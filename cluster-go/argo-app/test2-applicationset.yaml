@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+  namespace: openshift-gitops
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+      - cluster: engineering-dev
+        url: https://1.2.3.4
+  template:
+    metadata:
+      name: '{{.cluster}}-guestbook'
+      namespace: openshift-gitops
+    spec:
+      project: hub
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: cluster-go/infrastructure/rhacm
+        repoURL: https://github.com/joelapatatechaude/hub
+      destination:
+        name: in-cluster

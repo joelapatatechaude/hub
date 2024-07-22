@@ -2,7 +2,7 @@ apiVersion: project.openshift.io/v1
 kind: Project
 metadata:
   labels:
-    clusterresourceoverrides.admission.autoscaling.openshift.io/enabled: 'true'
+    mutate-cpu: 'true'
   name: open-cluster-management
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
