@@ -1,0 +1,32 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: app
+  namespace: rio-3-tier-bis
+  labels:
+    app: app
+    app.kubernetes.io/component: app
+    app.kubernetes.io/instance: app
+    app.kubernetes.io/name: app
+    app.openshift.io/runtime: nginx
+    app.openshift.io/runtime-version: 1.20-ubi7
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: 8443-tcp
+      protocol: TCP
+      port: 8443
+      targetPort: 8443
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: app
+    deployment: app
+

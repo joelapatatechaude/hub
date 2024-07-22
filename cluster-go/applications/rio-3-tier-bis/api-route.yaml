@@ -1,0 +1,26 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: api
+  namespace: rio-3-tier-bis
+  labels:
+    app: dotnet-time-host-api
+    app.kubernetes.io/component: dotnet-time-host-api
+    app.kubernetes.io/instance: dotnet-time-host-api
+    app.kubernetes.io/name: dotnet-time-host-api
+    app.openshift.io/runtime-version: latest
+    argocd.argoproj.io/instance: rio-3-tier-site-bm
+  annotations:
+    haproxy.router.openshift.io/balance: roundrobin
+    haproxy.router.openshift.io/disable_cookies: 'true'
+spec:
+  path: "/api/time"
+  to:
+    kind: Service
+    name: dotnet-time-host-api
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+  wildcardPolicy: None

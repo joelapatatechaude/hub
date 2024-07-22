@@ -1,0 +1,60 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: 'false'
+    deployment.kubernetes.io/revision: '1'
+    app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"mssql"}]'
+
+  name: api
+  namespace: rio-3-tier-bis
+  labels:
+    app: dotnet-time-host-api
+    app.kubernetes.io/component: dotnet-time-host-api
+    app.kubernetes.io/instance: dotnet-time-host-api
+    app.kubernetes.io/name: dotnet-time-host-api
+    app.openshift.io/runtime: dotnet
+    app.openshift.io/runtime-namespace: rio-3-tier-bis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnet-time-host-api
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: dotnet-time-host-api
+        deployment: dotnet-time-host-api
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      volumes:
+        - name: dotnet-time-host-api-1
+          emptyDir: {}
+      containers:
+        - name: dotnet-time-host-api
+          image: 'quay.io/rh_ee_cschmitz/dotnet-time-host-api:latest'
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: dotnet-time-host-api-1
+              mountPath: /tmp
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

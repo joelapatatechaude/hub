@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: dotnet-time-host-api
+  namespace: rio-3-tier-bis
+  labels:
+    app: dotnet-time-host-api
+    app.kubernetes.io/component: dotnet-time-host-api
+    app.kubernetes.io/instance: dotnet-time-host-api
+    app.kubernetes.io/name: dotnet-time-host-api
+    app.openshift.io/runtime-version: latest
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: dotnet-time-host-api
+    deployment: dotnet-time-host-api
