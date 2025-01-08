@@ -1,0 +1,9 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: gitops-banner
+spec:
+  backgroundColor: '#48CAE4'
+  color: '#000000'
+  location: BannerTop
+  text: "sno cluster"
