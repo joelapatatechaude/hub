@@ -18,6 +18,8 @@ spec:
     path: cluster-go/operators/PatchOperator
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
+    automated: {}
     syncOptions:
       - Prune=true
       - CreateNamespace=true
+
