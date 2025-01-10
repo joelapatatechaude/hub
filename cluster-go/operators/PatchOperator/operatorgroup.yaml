@@ -1,0 +1,9 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: Patch.v1alpha1.redhatcop.redhat.io
+  name: patch-operator-xyz
+  namespace: patch-operator
+spec:
+  upgradeStrategy: Default
