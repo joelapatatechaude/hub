@@ -9,7 +9,7 @@ spec:
     name: letsencrypt-cloudflare-staging
     kind: ClusterIssuer
   dnsNames:
-    - 'test.cszevaco.com'
+    - 'test.{{ .Values.clusterdomain }}'
   usages:
     - digital signature
     - key encipherment
