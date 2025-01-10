@@ -6,6 +6,7 @@ metadata:
   labels:
     type: operator
     patch: core
+    bootstrap: bootstrap
 spec:
   destination:
     name: in-cluster
@@ -14,7 +15,7 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: cluster-go/operators/atchOperator
+    path: cluster-go/operators/PatchOperator
     repoURL: https://github.com/joelapatatechaude/hub
   syncPolicy:
     syncOptions:
