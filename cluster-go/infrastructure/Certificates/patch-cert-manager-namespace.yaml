@@ -1,0 +1,19 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  name: add-label-to-namespace
+  namespace: patch-operator
+spec:
+  serviceAccountRef:
+    name: patch-operator-sa
+  patches:
+    add-label:
+      targetObjectRef:
+        apiVersion: v1
+        kind: Namespace
+        name: cert-manager
+      patchTemplate: |
+        metadata:
+          labels:
+            cloudflare-api-token: yes-please
+      patchType: application/merge-patch+json
