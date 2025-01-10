@@ -11,11 +11,15 @@ spec:
     name: in-cluster
   project: hub
   source:
-    directory:
-      jsonnet: {}
-      recurse: true
     path: cluster-go/infrastructure/Certificates
     repoURL: https://github.com/joelapatatechaude/hub
+    targetRevision: main
+    helm:
+      parameters:
+        - name: "clustername"
+          value: "hub"
+        - name: "clusterdomain"
+          value: "cszevaco.com"
   syncPolicy:
     syncOptions:
       - Prune=true
