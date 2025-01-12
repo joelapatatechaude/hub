@@ -21,6 +21,6 @@ spec:
     helm:
       parameters:
         - name: "clustername"
-          value: "hub"
+          value: "$CLUSTER_NAME"
         - name: "clusterdomain"
-          value: "cszevaco.com"
+          value: "$ROUTE53_DOMAIN"

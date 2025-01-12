@@ -21,7 +21,7 @@ spec:
     targetRevision: main
     helm:
       parameters:
-      - name: "clustername"
-        value: "hub"
-      - name: "clusterdomain"
-        value: "cszevaco.com"
+        - name: "clustername"
+          value: "$CLUSTER_NAME"
+        - name: "clusterdomain"
+          value: "$ROUTE53_DOMAIN"
