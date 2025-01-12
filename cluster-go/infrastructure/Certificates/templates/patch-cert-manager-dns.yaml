@@ -1,0 +1,23 @@
+{{if .Values.certmanagerdns}}
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  name: custom-dns-cert-manager
+  namespace: patch-operator
+spec:
+  serviceAccountRef:
+    name: patch-operator-sa
+  patches:
+    add-label:
+      targetObjectRef:
+        apiVersion: v1
+        kind: CertManager
+        name: cluster
+      patchTemplate: |
+        spec:
+          controllerConfig:
+            overrideArgs:
+            - --dns01-recursive-nameservers={{.Values.certmanagerdns}}
+            - --dns01-recursive-nameservers-only=true
+      patchType: application/merge-patch+json
+{{ end }}
