@@ -20,6 +20,8 @@ spec:
           value: "$CLUSTER_NAME"
         - name: "clusterdomain"
           value: "$ROUTE53_DOMAIN"
+        - name: "certmanagerdns"
+          value: "$ENVIRONMENT_DNS"
   syncPolicy:
     syncOptions:
       - Prune=true
