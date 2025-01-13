@@ -10,7 +10,7 @@ spec:
   patches:
     add-label:
       targetObjectRef:
-        apiVersion: v1
+        apiVersion: operator.openshift.io/v1alpha1
         kind: CertManager
         name: cluster
       patchTemplate: |
