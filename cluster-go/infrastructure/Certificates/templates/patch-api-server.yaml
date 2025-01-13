@@ -17,7 +17,7 @@ spec:
         spec:
           servingCerts:
             namedCertificates:
-            - name:
+            - names:
               - api.{{ .Values.clustername }}.{{ .Values.clusterdomain }}
               servingCertificate:
                 name: ingress-certificate-production
