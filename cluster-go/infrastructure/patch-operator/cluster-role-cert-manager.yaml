@@ -3,6 +3,6 @@ kind: ClusterRole
 metadata:
   name: patch-operator-cert-manager-patcher
 rules:
-  - apiGroups: ["operator.openshift.io/v1alpha1"]
-    resources: ["certmanager"]
+  - apiGroups: ["operator.openshift.io"]
+    resources: ["certmanagers"]
     verbs: ["get", "patch", "list"]
