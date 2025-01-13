@@ -1,0 +1,21 @@
+{{if .Values.customcert}}
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: Patch
+metadata:
+  name: custom-ingress-cert
+  namespace: patch-operator
+spec:
+  serviceAccountRef:
+    name: patch-operator-sa
+  patches:
+    add-label:
+      targetObjectRef:
+        apiVersion: config.openshift.io/v1
+        kind: IngressController
+        name: default
+      patchTemplate: |
+        spec:
+          defaultCertificate:
+            name: ingress-certificate-production
+      patchType: application/merge-patch+json
+{{ end }}
