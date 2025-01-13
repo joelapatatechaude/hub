@@ -10,7 +10,7 @@ spec:
   patches:
     add-label:
       targetObjectRef:
-        apiVersion: config.openshift.io/v1
+        apiVersion: operator.openshift.io/v1
         kind: IngressController
         name: default
       patchTemplate: |
