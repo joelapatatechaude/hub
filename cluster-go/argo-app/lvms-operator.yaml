@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: lvms-operator
+  namespace: openshift-gitops
+  labels:
+    type: operator
+    storage: core
+    storage_type: sno-bm
+spec:
+  destination:
+    name: in-cluster
+  project: hub
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: cluster-go/operators/LVMS
+    repoURL: https://github.com/joelapatatechaude/hub
+  syncPolicy:
+    syncOptions:
+    - Prune=true
+    - CreateNamespace=true
