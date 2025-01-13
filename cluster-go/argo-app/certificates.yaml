@@ -22,6 +22,8 @@ spec:
           value: "$ROUTE53_DOMAIN"
         - name: "certmanagerdns"
           value: "$ENVIRONMENT_DNS"
+        - name: "customcert"
+          value: "CUSTOM_CERT"
   syncPolicy:
     syncOptions:
       - Prune=true
