@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: LVMCluster.v1alpha1.lvm.topolvm.io,LVMVolumeGroup.v1alpha1.lvm.topolvm.io,LVMVolumeGroupNodeStatus.v1alpha1.lvm.topolvm.io,LogicalVolume.v1.topolvm.io
+  name: openshift-storage-xyz
+  namespace: openshift-storage
+spec:
+  targetNamespaces:
+  - openshift-storage
+  upgradeStrategy: Default
